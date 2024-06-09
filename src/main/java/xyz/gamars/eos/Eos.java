@@ -11,10 +11,10 @@ import xyz.gamars.eos.objects.ItemInit;
 public class Eos
 {
     public static final String MOD_ID = "eos";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
-    public Eos(IEventBus modEventBus, ModContainer modContainer) {
-        ItemInit.ITEMS.register(modEventBus);
+    public Eos(IEventBus eventBus, ModContainer modContainer) {
+        ItemInit.ITEMS.register(eventBus);
     }
 
 }
