@@ -37,7 +37,7 @@ public class DevItem extends Item {
     public InteractionResult useOn(UseOnContext context) {
 
         if (!context.getLevel().isClientSide()) {
-            context.getLevel().setBlock(context.getClickedPos(), Blocks.DIAMOND_BLOCK.defaultBlockState(), 1);
+            context.getLevel().setBlockAndUpdate(context.getClickedPos(), Blocks.DIAMOND_BLOCK.defaultBlockState());
         }
 
         return super.useOn(context);
