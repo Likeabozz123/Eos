@@ -14,7 +14,7 @@ public class Eos
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public Eos(IEventBus eventBus, ModContainer modContainer) {
-        ItemInit.ITEMS.register(eventBus);
+        ItemInit.register(eventBus);
     }
 
 }
