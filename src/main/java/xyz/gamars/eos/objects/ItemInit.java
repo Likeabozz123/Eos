@@ -9,6 +9,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import xyz.gamars.eos.Eos;
 import xyz.gamars.eos.objects.items.DevItem;
+import xyz.gamars.eos.objects.items.PoseidonArmorItem;
 
 public class ItemInit {
 
@@ -18,13 +19,13 @@ public class ItemInit {
     public static final DeferredHolder<Item, Item> PLUNGER = ITEMS.register("plunger", () -> new Item(new Item.Properties()));
 
     public static final DeferredHolder<Item, Item> POSEIDON_HELMET = ITEMS.register("poseidon_helmet",
-            () -> new ArmorItem(ArmorMaterials.DIAMOND, ArmorItem.Type.HELMET, new Item.Properties()));
+            () -> new PoseidonArmorItem(ArmorMaterials.DIAMOND, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final DeferredHolder<Item, Item> POSEIDON_CHESTPLATE = ITEMS.register("poseidon_chestplate",
-            () -> new ArmorItem(ArmorMaterials.DIAMOND, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            () -> new PoseidonArmorItem(ArmorMaterials.DIAMOND, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final DeferredHolder<Item, Item> POSEIDON_LEGGINGS = ITEMS.register("poseidon_leggings",
-            () -> new ArmorItem(ArmorMaterials.DIAMOND, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            () -> new PoseidonArmorItem(ArmorMaterials.DIAMOND, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final DeferredHolder<Item, Item> POSEIDON_BOOTS = ITEMS.register("poseidon_boots",
-            () -> new ArmorItem(ArmorMaterials.DIAMOND, ArmorItem.Type.BOOTS, new Item.Properties()));
+            () -> new PoseidonArmorItem(ArmorMaterials.DIAMOND, ArmorItem.Type.BOOTS, new Item.Properties()));
 
 
     public static void register(IEventBus eventBus) {

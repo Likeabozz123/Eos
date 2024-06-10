@@ -3,6 +3,7 @@ package xyz.gamars.eos.objects.items;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -39,4 +40,7 @@ public class DevItem extends Item {
 
         return super.useOn(context);
     }
+
+
+
 }
