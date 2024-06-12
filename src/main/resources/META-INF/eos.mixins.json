@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "xyz.gamars.eos.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "MixinLivingEntity"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "eos.refmap.json"
+}
