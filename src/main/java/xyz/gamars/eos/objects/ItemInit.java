@@ -13,7 +13,7 @@ import xyz.gamars.eos.objects.items.PoseidonArmorItem;
 
 public class ItemInit {
 
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(BuiltInRegistries.ITEM, Eos.MOD_ID);
+    private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(BuiltInRegistries.ITEM, Eos.MOD_ID);
 
     public static final DeferredHolder<Item, Item> DEV_ITEM = ITEMS.register("dev_item", () -> new DevItem(new Item.Properties()));
     public static final DeferredHolder<Item, Item> PLUNGER = ITEMS.register("plunger", () -> new Item(new Item.Properties()));
