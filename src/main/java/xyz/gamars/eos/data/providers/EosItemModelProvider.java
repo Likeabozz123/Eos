@@ -11,8 +11,6 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import xyz.gamars.eos.Eos;
 import xyz.gamars.eos.objects.ItemInit;
 
-import java.util.Objects;
-
 public class EosItemModelProvider extends ItemModelProvider {
 
 

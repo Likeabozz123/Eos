@@ -1,4 +1,9 @@
 {
+  "enchantment.eos.bane_of_pigs": "Bane of Pigs",
   "item.eos.dev_item": "Dev Item",
-  "item.eos.plunger": "Plunger"
+  "item.eos.plunger": "Plunger",
+  "item.eos.poseidon_boots": "Poseidon Boots",
+  "item.eos.poseidon_chestplate": "Poseidon Chestplate",
+  "item.eos.poseidon_helmet": "Poseidon Helmet",
+  "item.eos.poseidon_leggings": "Poseidon Leggings"
 }
