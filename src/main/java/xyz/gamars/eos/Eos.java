@@ -5,6 +5,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import org.slf4j.Logger;
+import xyz.gamars.eos.objects.CreativeTabInit;
 import xyz.gamars.eos.objects.EnchantmentInit;
 import xyz.gamars.eos.objects.ItemInit;
 
@@ -17,6 +18,9 @@ public class Eos
     public Eos(IEventBus eventBus, ModContainer modContainer) {
         ItemInit.register(eventBus);
         EnchantmentInit.register(eventBus);
+        CreativeTabInit.register(eventBus);
     }
+
+
 
 }

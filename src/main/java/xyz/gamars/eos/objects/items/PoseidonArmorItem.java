@@ -38,4 +38,5 @@ public class PoseidonArmorItem extends ArmorItem {
         super.inventoryTick(itemStack, level, entity, slotID, isSelected);
     }
 
+
 }

@@ -24,6 +24,7 @@ public class EosLanguageProvider extends LanguageProvider {
 
         add(EnchantmentInit.BANE_OF_PIGS.get(), "Bane of Pigs");
 
+        add("itemGroup." + Eos.MOD_ID + ".eos_tab", "Eos Tab");
     }
 
     @Override

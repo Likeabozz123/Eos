@@ -33,7 +33,8 @@ public class EosItemModelProvider extends ItemModelProvider {
                 .texture("layer0", new ResourceLocation(resourceLocation.getNamespace(), "item/" + resourceLocation.getPath()));
     }
 
-
-
-
+    @Override
+    public String getName() {
+        return "Modeling for my babygirl ;)";
+    }
 }

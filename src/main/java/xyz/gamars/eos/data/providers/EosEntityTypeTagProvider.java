@@ -21,14 +21,15 @@ public class EosEntityTypeTagProvider extends EntityTypeTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
-
-
         tag(TagInit.PIG_LIKE)
                 .add(EntityType.PIG)
                 .add(EntityType.PIGLIN)
                 .add(EntityType.PIGLIN_BRUTE)
                 .add(EntityType.ZOMBIFIED_PIGLIN);
+    }
 
-
+    @Override
+    public String getName() {
+        return "Generating tags because William didn't know what arthropods meant";
     }
 }
