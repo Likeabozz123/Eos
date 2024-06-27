@@ -10,6 +10,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import xyz.gamars.eos.Eos;
 import xyz.gamars.eos.common.objects.items.DevItem;
 import xyz.gamars.eos.common.objects.items.PoseidonArmorItem;
+import xyz.gamars.eos.common.objects.items.coolassstick.CoolAssStickItem;
 
 public class ItemInit {
 
@@ -18,6 +19,8 @@ public class ItemInit {
 
     public static final DeferredHolder<Item, Item> DEV_ITEM = ITEMS.register("dev_item", () -> new DevItem(new Item.Properties()));
     public static final DeferredHolder<Item, Item> PLUNGER = ITEMS.register("plunger", () -> new Item(new Item.Properties()));
+
+    public static final DeferredHolder<Item, Item> COOL_ASS_STICK = ITEMS.register("cool_ass_stick", () -> new CoolAssStickItem(new Item.Properties()));
 
     public static final DeferredHolder<Item, Item> POSEIDON_HELMET = ITEMS.register("poseidon_helmet",
             () -> new PoseidonArmorItem(ArmorMaterials.DIAMOND, ArmorItem.Type.HELMET, new Item.Properties()));
