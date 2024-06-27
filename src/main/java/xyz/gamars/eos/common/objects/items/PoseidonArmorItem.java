@@ -38,5 +38,8 @@ public class PoseidonArmorItem extends ArmorItem {
         super.inventoryTick(itemStack, level, entity, slotID, isSelected);
     }
 
-
+    @Override
+    public int getMaxStackSize(ItemStack stack) {
+        return 1;
+    }
 }
