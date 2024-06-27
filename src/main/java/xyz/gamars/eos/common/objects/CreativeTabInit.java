@@ -1,4 +1,4 @@
-package xyz.gamars.eos.objects;
+package xyz.gamars.eos.common.objects;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;

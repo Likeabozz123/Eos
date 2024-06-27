@@ -1,4 +1,4 @@
-package xyz.gamars.eos.listener;
+package xyz.gamars.eos.common.listener;
 
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
@@ -6,8 +6,8 @@ import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import xyz.gamars.eos.Eos;
-import xyz.gamars.eos.events.PlayerSwingEvent;
-import xyz.gamars.eos.objects.ItemInit;
+import xyz.gamars.eos.common.events.PlayerSwingEvent;
+import xyz.gamars.eos.common.objects.ItemInit;
 
 @EventBusSubscriber(modid = Eos.MOD_ID)
 public class PlayerSwingEventListener {

@@ -1,4 +1,4 @@
-package xyz.gamars.eos.events;
+package xyz.gamars.eos.common.events;
 
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;

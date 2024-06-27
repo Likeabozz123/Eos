@@ -1,4 +1,4 @@
-package xyz.gamars.eos.objects;
+package xyz.gamars.eos.common.objects;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.ArmorItem;
@@ -8,8 +8,8 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import xyz.gamars.eos.Eos;
-import xyz.gamars.eos.objects.items.DevItem;
-import xyz.gamars.eos.objects.items.PoseidonArmorItem;
+import xyz.gamars.eos.common.objects.items.DevItem;
+import xyz.gamars.eos.common.objects.items.PoseidonArmorItem;
 
 public class ItemInit {
 

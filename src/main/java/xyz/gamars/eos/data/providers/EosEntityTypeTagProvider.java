@@ -7,7 +7,7 @@ import net.minecraft.world.entity.EntityType;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import xyz.gamars.eos.Eos;
-import xyz.gamars.eos.objects.TagInit;
+import xyz.gamars.eos.common.objects.TagInit;
 
 import java.util.concurrent.CompletableFuture;
 

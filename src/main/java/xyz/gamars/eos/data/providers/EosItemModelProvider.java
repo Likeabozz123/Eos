@@ -9,7 +9,7 @@ import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import xyz.gamars.eos.Eos;
-import xyz.gamars.eos.objects.ItemInit;
+import xyz.gamars.eos.common.objects.ItemInit;
 
 public class EosItemModelProvider extends ItemModelProvider {
 

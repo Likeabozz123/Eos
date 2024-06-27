@@ -1,4 +1,4 @@
-package xyz.gamars.eos.listener;
+package xyz.gamars.eos.common.listener;
 
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;

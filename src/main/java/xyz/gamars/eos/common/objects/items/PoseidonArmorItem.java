@@ -1,4 +1,4 @@
-package xyz.gamars.eos.objects.items;
+package xyz.gamars.eos.common.objects.items;
 
 import net.minecraft.core.Holder;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -9,7 +9,7 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import xyz.gamars.eos.objects.ItemInit;
+import xyz.gamars.eos.common.objects.ItemInit;
 
 import java.util.ArrayList;
 

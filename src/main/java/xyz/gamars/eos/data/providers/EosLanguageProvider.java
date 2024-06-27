@@ -3,8 +3,8 @@ package xyz.gamars.eos.data.providers;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import xyz.gamars.eos.Eos;
-import xyz.gamars.eos.objects.EnchantmentInit;
-import xyz.gamars.eos.objects.ItemInit;
+import xyz.gamars.eos.common.objects.EnchantmentInit;
+import xyz.gamars.eos.common.objects.ItemInit;
 
 public class EosLanguageProvider extends LanguageProvider {
 

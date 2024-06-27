@@ -5,9 +5,10 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import org.slf4j.Logger;
-import xyz.gamars.eos.objects.CreativeTabInit;
-import xyz.gamars.eos.objects.EnchantmentInit;
-import xyz.gamars.eos.objects.ItemInit;
+import xyz.gamars.eos.common.objects.CreativeTabInit;
+import xyz.gamars.eos.common.objects.EnchantmentInit;
+import xyz.gamars.eos.common.objects.ItemInit;
+import xyz.gamars.eos.common.objects.ParticleTypeInit;
 
 @Mod(Eos.MOD_ID)
 public class Eos
@@ -19,6 +20,7 @@ public class Eos
         ItemInit.register(eventBus);
         EnchantmentInit.register(eventBus);
         CreativeTabInit.register(eventBus);
+        ParticleTypeInit.register(eventBus);
     }
 
 
