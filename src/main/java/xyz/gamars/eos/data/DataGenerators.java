@@ -9,10 +9,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import xyz.gamars.eos.Eos;
-import xyz.gamars.eos.data.providers.EosEntityTypeTagProvider;
-import xyz.gamars.eos.data.providers.EosItemModelProvider;
-import xyz.gamars.eos.data.providers.EosLanguageProvider;
-import xyz.gamars.eos.data.providers.EosParticleDescriptionProvider;
+import xyz.gamars.eos.data.providers.*;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -29,6 +26,7 @@ public class DataGenerators {
 
         generator.addProvider(event.includeClient(), new EosLanguageProvider(packOutput));
         generator.addProvider(event.includeClient(), new EosItemModelProvider(packOutput, existingFileHelper));
+        generator.addProvider(event.includeClient(), new EosBlockStateProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeServer(), new EosEntityTypeTagProvider(packOutput, provider, existingFileHelper));
         generator.addProvider(event.includeClient(), new EosParticleDescriptionProvider(packOutput, existingFileHelper));
     }

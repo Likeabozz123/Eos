@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "eos:block/marble_slab"
+    },
+    "type=double": {
+      "model": "eos:block/marble_bricks"
+    },
+    "type=top": {
+      "model": "eos:block/marble_slab_top"
+    }
+  }
+}

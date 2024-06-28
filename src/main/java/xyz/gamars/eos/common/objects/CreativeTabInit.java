@@ -17,7 +17,7 @@ public class CreativeTabInit {
     public static final Supplier<CreativeModeTab> EOS_TAB = CREATIVE_MODE_TAB.register("eos_tab",
             () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup." + Eos.MOD_ID + ".eos_tab"))
-                    .icon(() -> new ItemStack(ItemInit.PLUNGER.get()))
+                    .icon(() -> new ItemStack(ItemInit.PLUNGER.get(), 1))
                     .displayItems((params, output) -> {
 
                         ItemInit.ITEMS.getEntries().forEach((item) -> {
