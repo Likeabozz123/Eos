@@ -60,4 +60,7 @@ public class PoseidonArmorItem extends ArmorItem {
     public int getMaxStackSize(ItemStack stack) {
         return 1;
     }
+
+
+
 }

@@ -17,19 +17,7 @@ public class TickEventListener{
 
     @SubscribeEvent
     public static void onTick(EntityTickEvent.Post event) {
-        if (event.getEntity() instanceof LivingEntity) {
-            LivingEntity entity = (LivingEntity) event.getEntity();
-            ArrayList<ItemStack> armorSlots = new ArrayList<>();
-            entity.getArmorSlots().forEach(armorSlots::add);
 
-            if (armorSlots.get(3).is(ItemInit.POSEIDON_HELMET.get())
-                    && armorSlots.get(2).is(ItemInit.POSEIDON_CHESTPLATE.get())
-                    && armorSlots.get(1).is(ItemInit.POSEIDON_LEGGINGS.get())
-                    && armorSlots.get(0).is(ItemInit.POSEIDON_BOOTS.get())) {
-                entity.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 20, 0, false, false));
-            }
-
-        }
     }
 
 }
