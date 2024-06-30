@@ -26,6 +26,7 @@ public class EosEntityTypeTagProvider extends EntityTypeTagsProvider {
                 .add(EntityType.PIGLIN)
                 .add(EntityType.PIGLIN_BRUTE)
                 .add(EntityType.ZOMBIFIED_PIGLIN);
+
     }
 
     @Override

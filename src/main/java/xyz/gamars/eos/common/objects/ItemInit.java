@@ -3,6 +3,7 @@ package xyz.gamars.eos.common.objects;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Tiers;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -10,6 +11,8 @@ import xyz.gamars.eos.Eos;
 import xyz.gamars.eos.common.objects.items.DevItem;
 import xyz.gamars.eos.common.objects.items.PoseidonArmorItem;
 import xyz.gamars.eos.common.objects.items.coolassstick.CoolAssStickItem;
+import xyz.gamars.eos.common.objects.items.TyrfingrSword;
+import xyz.gamars.eos.objects.items.PoseidonTrident;
 
 public class ItemInit {
 
@@ -30,11 +33,11 @@ public class ItemInit {
     public static final DeferredHolder<Item, Item> POSEIDON_BOOTS = ITEMS.register("poseidon_boots",
             () -> new PoseidonArmorItem(ArmorMaterialsInit.POSEIDON_MATERIAL, ArmorItem.Type.BOOTS, new Item.Properties()));
 
+    public static final DeferredHolder<Item, Item> POSEIDON_TRIDENT = ITEMS.register("poseidon_trident",
+            () -> new PoseidonTrident(new Item.Properties().attributes(PoseidonTrident.createAttributes())));
 
-
-
-
-
+    public static final DeferredHolder<Item, Item> TYRFINGER_SWORD = ITEMS.register("tyrfingr_sword",
+            () -> new TyrfingrSword(Tiers.NETHERITE, new Item.Properties().attributes(TyrfingrSword.createAttributes(Tiers.DIAMOND, 5, -2f))));
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

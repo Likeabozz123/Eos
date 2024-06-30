@@ -1,10 +1,13 @@
 {
   "enchantment.eos.bane_of_pigs": "Bane of Pigs",
+  "enchantment.eos.poseidon_luck": "Poseidon Luck",
   "item.eos.dev_item": "Dev Item",
   "item.eos.plunger": "Plunger",
-  "item.eos.poseidon_boots": "Poseidon Boots",
-  "item.eos.poseidon_chestplate": "Poseidon Chestplate",
-  "item.eos.poseidon_helmet": "Poseidon Helmet",
-  "item.eos.poseidon_leggings": "Poseidon Leggings",
+  "item.eos.poseidon_boots": "Poseidon's Boots",
+  "item.eos.poseidon_chestplate": "Poseidon's Chestplate",
+  "item.eos.poseidon_helmet": "Poseidon's Helmet",
+  "item.eos.poseidon_leggings": "Poseidon's Leggings",
+  "item.eos.poseidon_trident": "Poseidon's Trident",
+  "item.eos.tyrfingr_sword": "Tyrfinger Sword",
   "itemGroup.eos.eos_tab": "Eos Tab"
 }

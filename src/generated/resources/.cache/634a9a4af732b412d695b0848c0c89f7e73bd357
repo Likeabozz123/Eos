@@ -1,0 +1,4 @@
+// 1.20.6	2024-06-29T23:54:23.1584738	Tags for minecraft:item mod id eos
+eb19d2713b266a6f50086a5c8dd86541e39eecaa data/eos/tags/items/poseidon_helmet.json
+344ead14e5b2ca83053f13395b439aff1b4b91c0 data/minecraft/tags/items/enchantable/chest_armor.json
+035d484ddc2284a13e8f7b3181f12036031a9027 data/minecraft/tags/items/enchantable/head_armor.json

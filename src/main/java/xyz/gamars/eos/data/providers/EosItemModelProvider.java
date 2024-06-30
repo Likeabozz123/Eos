@@ -24,6 +24,8 @@ public class EosItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
 
         handheldItem(ItemInit.DEV_ITEM.get());
+        handheldItem(ItemInit.POSEIDON_TRIDENT.get());
+        handheldItem(ItemInit.TYRFINGER_SWORD.get());
         basicItem(ItemInit.PLUNGER.get());
 
         blockItem(BlockInit.MARBLE.get());
@@ -33,7 +35,6 @@ public class EosItemModelProvider extends ItemModelProvider {
         blockItem(BlockInit.MARBLE_STAIRS.get());
         blockItem(BlockInit.MARBLE_SLAB.get());
         wallBlockItem(BlockInit.MARBLE_WALL.get(), BlockInit.MARBLE_BRICKS.get());
-
     }
 
     public ItemModelBuilder handheldItem(Item item) {

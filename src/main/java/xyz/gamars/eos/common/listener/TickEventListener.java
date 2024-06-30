@@ -12,8 +12,6 @@ public class TickEventListener{
     public static void onTick(EntityTickEvent.Post event) {
         if (!event.getEntity().level().isClientSide()) {
 
-
-
         }
     }
 

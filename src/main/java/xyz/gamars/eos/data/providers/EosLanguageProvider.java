@@ -16,13 +16,17 @@ public class EosLanguageProvider extends LanguageProvider {
     protected void addTranslations() {
         add(ItemInit.DEV_ITEM.get(), "Dev Item");
         add(ItemInit.PLUNGER.get(), "Plunger");
-
-        add(ItemInit.POSEIDON_HELMET.get(), "Poseidon Helmet");
-        add(ItemInit.POSEIDON_CHESTPLATE.get(), "Poseidon Chestplate");
-        add(ItemInit.POSEIDON_LEGGINGS.get(), "Poseidon Leggings");
-        add(ItemInit.POSEIDON_BOOTS.get(), "Poseidon Boots");
+        add(ItemInit.POSEIDON_TRIDENT.get(), "Poseidon's Trident");
+        add(ItemInit.POSEIDON_HELMET.get(), "Poseidon's Helmet");
+        add(ItemInit.POSEIDON_CHESTPLATE.get(), "Poseidon's Chestplate");
+        add(ItemInit.POSEIDON_LEGGINGS.get(), "Poseidon's Leggings");
+        add(ItemInit.POSEIDON_BOOTS.get(), "Poseidon's Boots");
+        add(ItemInit.TYRFINGER_SWORD.get(), "Tyrfinger Sword");
 
         add(EnchantmentInit.BANE_OF_PIGS.get(), "Bane of Pigs");
+        add(EnchantmentInit.POSEIDON_LUCK.get(), "Poseidon Luck");
+
+
 
         add("itemGroup." + Eos.MOD_ID + ".eos_tab", "Eos Tab");
     }
