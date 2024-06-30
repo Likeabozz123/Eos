@@ -28,9 +28,6 @@ public class EosItemTagProvider extends ItemTagsProvider {
         tag(TagInit.POSEIDON_HELMET)
                 .add(ItemInit.POSEIDON_HELMET.get());
 
-        tag(ItemTags.HEAD_ARMOR_ENCHANTABLE)
-                .addTags(TagInit.POSEIDON_HELMET);
-
         tag(ItemTags.CHEST_ARMOR_ENCHANTABLE)
                 .add(ItemInit.POSEIDON_CHESTPLATE.get());
 

@@ -13,6 +13,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import xyz.gamars.eos.Eos;
+import xyz.gamars.eos.common.objects.enchantments.PoseidonLuckEnchantment;
 
 import javax.swing.text.html.HTML;
 import java.util.Optional;
@@ -36,8 +37,8 @@ public class EnchantmentInit {
 
 
     public static final DeferredHolder<Enchantment, Enchantment> POSEIDON_LUCK = ENCHANTMENTS.register("poseidon_luck",
-            () -> new LootBonusEnchantment(Enchantment.definition(
-                    ItemTags.HEAD_ARMOR_ENCHANTABLE,
+            () -> new PoseidonLuckEnchantment(Enchantment.definition(
+                    TagInit.POSEIDON_HELMET,
                      5,
                     5,
                     Enchantment.dynamicCost(5, 8),
