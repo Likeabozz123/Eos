@@ -1,7 +1,5 @@
 package xyz.gamars.eos.common.objects;
 
-import net.minecraft.core.Holder;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
@@ -17,13 +15,16 @@ public class BlockInit {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.createBlocks(Eos.MOD_ID);
 
-    public static final DeferredHolder<Block, Block> MARBLE = create("marble", () -> new Block(BlockBehaviour.Properties.of()));
+    public static final DeferredHolder<Block, Block> RAW_MARBLE = create("raw_marble", () -> new Block(BlockBehaviour.Properties.of()));
     public static final DeferredHolder<Block, Block> MARBLE_BRICKS = create("marble_bricks", () -> new Block(BlockBehaviour.Properties.of()));
-    public static final DeferredHolder<Block, Block> CRACKED_MARBLE_BRICKS = create("cracked_marble_bricks", () -> new Block(BlockBehaviour.Properties.of()));
-    public static final DeferredHolder<Block, RotatedPillarBlock> MARBLE_PILLAR = create("marble_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of()));
+    public static final DeferredHolder<Block, Block> LARGE_MARBLE_BRICKS = create("large_marble_bricks", () -> new Block(BlockBehaviour.Properties.of()));
+    public static final DeferredHolder<Block, Block> CRACKED_MARBLE_BRICKS = create("cracked_marble_bricks", () -> new Block(BlockBehaviour.Properties.of().ofLegacyCopy(MARBLE_BRICKS.get())));
+    public static final DeferredHolder<Block, Block> CHISELED_MARBLE = create("chiseled_marble", () -> new Block(BlockBehaviour.Properties.of().ofLegacyCopy(MARBLE_BRICKS.get())));
+    public static final DeferredHolder<Block, Block> CHISELED_MARBLE_2 = create("chiseled_marble_2", () -> new Block(BlockBehaviour.Properties.of().ofLegacyCopy(MARBLE_BRICKS.get())));
+    public static final DeferredHolder<Block, RotatedPillarBlock> MARBLE_PILLAR = create("marble_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().ofLegacyCopy(MARBLE_BRICKS.get())));
     public static final DeferredHolder<Block, StairBlock> MARBLE_STAIRS = create("marble_stairs", () -> new StairBlock(MARBLE_BRICKS.get().defaultBlockState(),BlockBehaviour.Properties.of().ofLegacyCopy(MARBLE_BRICKS.get())));
-    public static final DeferredHolder<Block, SlabBlock> MARBLE_SLAB = create("marble_slab", () -> new SlabBlock(BlockBehaviour.Properties.of()));
-    public static final DeferredHolder<Block, WallBlock> MARBLE_WALL = create("marble_wall", () -> new WallBlock(BlockBehaviour.Properties.of()));
+    public static final DeferredHolder<Block, SlabBlock> MARBLE_SLAB = create("marble_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().ofLegacyCopy(MARBLE_BRICKS.get())));
+    public static final DeferredHolder<Block, WallBlock> MARBLE_WALL = create("marble_wall", () -> new WallBlock(BlockBehaviour.Properties.of().ofLegacyCopy(MARBLE_BRICKS.get()).forceSolidOn()));
 
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);

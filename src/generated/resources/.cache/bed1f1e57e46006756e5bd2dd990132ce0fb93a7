@@ -1,13 +1,18 @@
-// 1.20.6	2024-06-28T07:59:56.9795775	Block States: eos
+// 1.20.6	2024-06-29T22:33:36.8430772	Block States: eos
+ba5f752f0725eaab49945d065d9e6dafd1fe8fca assets/eos/blockstates/chiseled_marble.json
+804344e6805a6a1d68b69529f6957edbd27ccf90 assets/eos/blockstates/chiseled_marble_2.json
 ae2cdf01c49b4f031b4c4455c4d3af36188d1c17 assets/eos/blockstates/cracked_marble_bricks.json
-008048528a1a95b4decb768c51ca98ab5eabd520 assets/eos/blockstates/marble.json
+e9ee8d1926de621ed444e665b195ad5f3118db61 assets/eos/blockstates/large_marble_bricks.json
 62fec26b4458e7957f534dcb7a34fc151c56527b assets/eos/blockstates/marble_bricks.json
 5b827777a9c2a5efe752730456377c4bab61dba2 assets/eos/blockstates/marble_pillar.json
 91c17d70a1f40b046920006066b0c00b269a4bb5 assets/eos/blockstates/marble_slab.json
 f68eb5edf8572f356fd9b0f229328e3c501fd4bc assets/eos/blockstates/marble_stairs.json
 6add1698df40eeda8e1d2c28fa18ac3a1a8dc239 assets/eos/blockstates/marble_wall.json
+6ba57817a3ba9eb907e7a8d3ba067f040a899600 assets/eos/blockstates/raw_marble.json
+e31e876fd252bd8bd9db24be1be37e66cce16006 assets/eos/models/block/chiseled_marble.json
+34267c04083fb2e1b1220f81f48edd1a1c61880c assets/eos/models/block/chiseled_marble_2.json
 f9d724d8a82256c90e4ac18cd0f4d0a05fe19e8c assets/eos/models/block/cracked_marble_bricks.json
-31d741df09711fdb6b4db54e8097fc8722a434b6 assets/eos/models/block/marble.json
+b5aacade666a5d535a1ac7c8a0b4790475317df2 assets/eos/models/block/large_marble_bricks.json
 b4210096b5d21b45ad2dad8552e5956b40ab363a assets/eos/models/block/marble_bricks.json
 2a51a85320232de20a3f3d349ba8d3d2e19a20ad assets/eos/models/block/marble_pillar.json
 bf8f0d3057e0e31b31ae3e1efb5d11b093e8fa64 assets/eos/models/block/marble_pillar_horizontal.json
@@ -19,3 +24,4 @@ ffc35a6836a895802093e796ecf8394a03bf8462 assets/eos/models/block/marble_stairs.j
 13ed184bd4c624ef42964088189ddf26403d45ab assets/eos/models/block/marble_wall_post.json
 4c7811f2bb1945592d5b43f38b6c82b7dd9945b1 assets/eos/models/block/marble_wall_side.json
 74f26de82092b6acdd61cde6cfa96f66453a2770 assets/eos/models/block/marble_wall_side_tall.json
+1147f2c128e4385cbab9626e384d121931fc6be8 assets/eos/models/block/raw_marble.json

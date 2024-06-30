@@ -3,6 +3,7 @@ package xyz.gamars.eos.data.providers;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import xyz.gamars.eos.Eos;
+import xyz.gamars.eos.common.objects.BlockInit;
 import xyz.gamars.eos.common.objects.EnchantmentInit;
 import xyz.gamars.eos.common.objects.ItemInit;
 
@@ -22,6 +23,17 @@ public class EosLanguageProvider extends LanguageProvider {
         add(ItemInit.POSEIDON_LEGGINGS.get(), "Poseidon's Leggings");
         add(ItemInit.POSEIDON_BOOTS.get(), "Poseidon's Boots");
         add(ItemInit.TYRFINGER_SWORD.get(), "Tyrfinger Sword");
+
+        add(BlockInit.RAW_MARBLE.get(), "Raw Marble");
+        add(BlockInit.MARBLE_BRICKS.get(), "Marble Bricks");
+        add(BlockInit.LARGE_MARBLE_BRICKS.get(), "Large Marble Bricks");
+        add(BlockInit.CRACKED_MARBLE_BRICKS.get(), "Cracked Marble Bricks");
+        add(BlockInit.CHISELED_MARBLE.get(), "Chiseled Marble");
+        add(BlockInit.CHISELED_MARBLE_2.get(), "Chiseled Marble");
+        add(BlockInit.MARBLE_PILLAR.get(), "Marble Pillar");
+        add(BlockInit.MARBLE_STAIRS.get(), "Marble Stairs");
+        add(BlockInit.MARBLE_SLAB.get(), "Marble Slab");
+        add(BlockInit.MARBLE_WALL.get(), "Marble Wall");
 
         add(EnchantmentInit.BANE_OF_PIGS.get(), "Bane of Pigs");
         add(EnchantmentInit.POSEIDON_LUCK.get(), "Poseidon Luck");

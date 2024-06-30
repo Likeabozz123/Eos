@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "eos:block/marble"
+      "model": "eos:block/raw_marble"
     }
   }
 }
