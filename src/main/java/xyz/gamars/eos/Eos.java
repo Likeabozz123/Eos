@@ -16,6 +16,7 @@ public class Eos
     public Eos(IEventBus eventBus, ModContainer modContainer) {
         ItemInit.register(eventBus);
         BlockInit.register(eventBus);
+        BlockEntityTypeInit.register(eventBus);
         ArmorMaterialsInit.register(eventBus);
         EnchantmentInit.register(eventBus);
         CreativeTabInit.register(eventBus);

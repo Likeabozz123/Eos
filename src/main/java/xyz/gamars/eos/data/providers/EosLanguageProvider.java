@@ -24,6 +24,8 @@ public class EosLanguageProvider extends LanguageProvider {
         add(ItemInit.POSEIDON_BOOTS.get(), "Poseidon's Boots");
         add(ItemInit.TYRFINGER_SWORD.get(), "Tyrfinger Sword");
 
+        add(BlockInit.DEV_BLOCK.get(), "Dev Block");
+
         add(BlockInit.RAW_MARBLE.get(), "Raw Marble");
         add(BlockInit.MARBLE_BRICKS.get(), "Marble Bricks");
         add(BlockInit.LARGE_MARBLE_BRICKS.get(), "Large Marble Bricks");

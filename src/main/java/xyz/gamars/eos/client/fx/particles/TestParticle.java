@@ -14,6 +14,7 @@ public class TestParticle extends TextureSheetParticle {
     public TestParticle(ClientLevel pLevel, double pX, double pY, double pZ, SpriteSet spriteSet) {
         super(pLevel, pX, pY, pZ);
         this.lifetime = 40;
+        this.gravity = -0.4f;
         this.spriteSet = spriteSet;
 
         setSpriteFromAge(spriteSet);

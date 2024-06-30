@@ -28,6 +28,8 @@ public class EosItemModelProvider extends ItemModelProvider {
         handheldItem(ItemInit.TYRFINGER_SWORD.get());
         basicItem(ItemInit.PLUNGER.get());
 
+        blockItem(BlockInit.DEV_BLOCK.get());
+
         blockItem(BlockInit.RAW_MARBLE.get());
         blockItem(BlockInit.MARBLE_BRICKS.get());
         blockItem(BlockInit.LARGE_MARBLE_BRICKS.get());

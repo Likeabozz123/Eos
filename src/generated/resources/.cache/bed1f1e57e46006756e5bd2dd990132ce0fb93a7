@@ -1,7 +1,8 @@
-// 1.20.6	2024-06-29T22:33:36.8430772	Block States: eos
+// 1.20.6	2024-06-30T13:54:27.0076124	Block States: eos
 ba5f752f0725eaab49945d065d9e6dafd1fe8fca assets/eos/blockstates/chiseled_marble.json
 804344e6805a6a1d68b69529f6957edbd27ccf90 assets/eos/blockstates/chiseled_marble_2.json
 ae2cdf01c49b4f031b4c4455c4d3af36188d1c17 assets/eos/blockstates/cracked_marble_bricks.json
+b519ed2d88f7b6aac50d2ea4674987b0bd21a24d assets/eos/blockstates/dev_block.json
 e9ee8d1926de621ed444e665b195ad5f3118db61 assets/eos/blockstates/large_marble_bricks.json
 62fec26b4458e7957f534dcb7a34fc151c56527b assets/eos/blockstates/marble_bricks.json
 5b827777a9c2a5efe752730456377c4bab61dba2 assets/eos/blockstates/marble_pillar.json
@@ -12,6 +13,7 @@ f68eb5edf8572f356fd9b0f229328e3c501fd4bc assets/eos/blockstates/marble_stairs.js
 e31e876fd252bd8bd9db24be1be37e66cce16006 assets/eos/models/block/chiseled_marble.json
 34267c04083fb2e1b1220f81f48edd1a1c61880c assets/eos/models/block/chiseled_marble_2.json
 f9d724d8a82256c90e4ac18cd0f4d0a05fe19e8c assets/eos/models/block/cracked_marble_bricks.json
+a039d351e288b2299099677c44e3ae1941ef011b assets/eos/models/block/dev_block.json
 b5aacade666a5d535a1ac7c8a0b4790475317df2 assets/eos/models/block/large_marble_bricks.json
 b4210096b5d21b45ad2dad8552e5956b40ab363a assets/eos/models/block/marble_bricks.json
 2a51a85320232de20a3f3d349ba8d3d2e19a20ad assets/eos/models/block/marble_pillar.json

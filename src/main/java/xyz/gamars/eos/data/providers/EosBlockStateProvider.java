@@ -16,6 +16,9 @@ public class EosBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+
+        simpleBlock(BlockInit.DEV_BLOCK.get());
+
         simpleBlock(BlockInit.RAW_MARBLE.get());
         simpleBlock(BlockInit.MARBLE_BRICKS.get());
         simpleBlock(BlockInit.LARGE_MARBLE_BRICKS.get());
