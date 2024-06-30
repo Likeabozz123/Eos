@@ -29,6 +29,8 @@ public class DataGenerators {
         generator.addProvider(event.includeClient(), new EosBlockStateProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeServer(), new EosEntityTypeTagProvider(packOutput, provider, existingFileHelper));
         generator.addProvider(event.includeClient(), new EosParticleDescriptionProvider(packOutput, existingFileHelper));
+
+        generator.addProvider(event.includeServer(), new EosBlockTagsProvider(packOutput, provider, existingFileHelper));
     }
 
 
