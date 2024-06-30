@@ -13,7 +13,7 @@ public class PoseidonLuckEnchantment extends LootBonusEnchantment {
     }
 
     @Override
-    public boolean allowedInCreativeTabw(Item book, Set<TagKey<Item>> allowedCategories) {
+    public boolean allowedInCreativeTab(Item book, Set<TagKey<Item>> allowedCategories) {
         return true;
     }
 
