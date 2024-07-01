@@ -28,6 +28,8 @@ public class EosItemModelProvider extends ItemModelProvider {
         handheldItem(ItemInit.TYRFINGER_SWORD.get());
         basicItem(ItemInit.PLUNGER.get());
 
+        // wukongStaff(10);
+
         blockItem(BlockInit.DEV_BLOCK.get());
 
         blockItem(BlockInit.RAW_MARBLE.get());
@@ -63,6 +65,21 @@ public class EosItemModelProvider extends ItemModelProvider {
                 .parent(new ModelFile.UncheckedModelFile("block/wall_inventory"))
                 .texture("wall", new ResourceLocation(resourceLocation.getNamespace(), "block/" + parentBlockResourceLocation.getPath()));
     }
+
+    public ItemModelBuilder wukongStaff(int maxSize) {
+        ResourceLocation wukongStaffModLoc = BuiltInRegistries.ITEM.getKey(ItemInit.WUKONGS_STAFF.get());
+        ItemModelBuilder wukongStaffItemModel = getBuilder(wukongStaffModLoc.toString())
+                .parent(new ModelFile.UncheckedModelFile("builtin/entity"));
+
+        for (int i = 1; i <= maxSize; i++) {
+            wukongStaffItemModel = wukongStaffItemModel.override()
+                    .predicate(new ResourceLocation(Eos.MOD_ID, "size"), i)
+                    .model(new ModelFile.UncheckedModelFile(new ResourceLocation(Eos.MOD_ID, "item/wukongs_staff_" + i))).end();
+        }
+
+        return wukongStaffItemModel;
+    }
+
 
     @Override
     public String getName() {

@@ -8,8 +8,10 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import xyz.gamars.eos.Eos;
+import xyz.gamars.eos.common.components.SizeComponent;
 import xyz.gamars.eos.common.objects.items.*;
 import xyz.gamars.eos.common.objects.items.coolassstick.CoolAssStickItem;
+import xyz.gamars.eos.common.objects.items.wukongsstaff.WukongsStaffItem;
 
 public class ItemInit {
 
@@ -35,6 +37,11 @@ public class ItemInit {
 
     public static final DeferredHolder<Item, TyrfingrSword> TYRFINGER_SWORD = ITEMS.register("tyrfingr_sword",
             () -> new TyrfingrSword(Tiers.NETHERITE, new Item.Properties().attributes(TyrfingrSword.createAttributes(Tiers.DIAMOND, 5, -2f))));
+
+    public static final DeferredHolder<Item, Item> WUKONGS_STAFF = ITEMS.register("wukongs_staff", () -> new WukongsStaffItem(
+            new Item.Properties()
+                    .component(DataComponentsInit.SIZE.value(), new SizeComponent(1, 4))));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
