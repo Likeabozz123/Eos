@@ -33,6 +33,9 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), eosBlockTagsProvider);
         generator.addProvider(event.includeServer(), new EosItemTagProvider(packOutput, provider, eosBlockTagsProvider.contentsGetter(), existingFileHelper));
         generator.addProvider(event.includeServer(), new EosEnchantTagProvider(packOutput, provider, existingFileHelper));
+
+        generator.addProvider(event.includeServer(), new EosCuriosDataProvider(packOutput, existingFileHelper, provider));
+
     }
 
 

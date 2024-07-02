@@ -1,5 +1,8 @@
 package xyz.gamars.eos.data.providers;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -12,12 +15,14 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import xyz.gamars.eos.Eos;
 import xyz.gamars.eos.common.objects.BlockInit;
 import xyz.gamars.eos.common.objects.ItemInit;
+import xyz.gamars.eos.common.objects.items.wukongsstaff.WukongsStaffItem;
 
 public class EosItemModelProvider extends ItemModelProvider {
 
 
     public EosItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, Eos.MOD_ID, existingFileHelper);
+
     }
 
     @Override
@@ -28,7 +33,7 @@ public class EosItemModelProvider extends ItemModelProvider {
         handheldItem(ItemInit.TYRFINGER_SWORD.get());
         basicItem(ItemInit.PLUNGER.get());
 
-        // wukongStaff(10);
+        wukongStaff(WukongsStaffItem.MAX_SIZE);
 
         blockItem(BlockInit.DEV_BLOCK.get());
 
@@ -74,12 +79,12 @@ public class EosItemModelProvider extends ItemModelProvider {
         for (int i = 1; i <= maxSize; i++) {
             wukongStaffItemModel = wukongStaffItemModel.override()
                     .predicate(new ResourceLocation(Eos.MOD_ID, "size"), i)
-                    .model(new ModelFile.UncheckedModelFile(new ResourceLocation(Eos.MOD_ID, "item/wukongs_staff_" + i))).end();
+                    .model(new ModelFile.UncheckedModelFile(new ResourceLocation(Eos.MOD_ID, "item/wukongs_staff/wukongs_staff_" + i))).end();
+
         }
 
         return wukongStaffItemModel;
     }
-
 
     @Override
     public String getName() {

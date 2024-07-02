@@ -1,0 +1,239 @@
+{
+  "parent": "minecraft:builtin/entity",
+  "overrides": [
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_1",
+      "predicate": {
+        "eos:size": 1.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_2",
+      "predicate": {
+        "eos:size": 2.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_3",
+      "predicate": {
+        "eos:size": 3.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_4",
+      "predicate": {
+        "eos:size": 4.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_5",
+      "predicate": {
+        "eos:size": 5.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_6",
+      "predicate": {
+        "eos:size": 6.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_7",
+      "predicate": {
+        "eos:size": 7.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_8",
+      "predicate": {
+        "eos:size": 8.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_9",
+      "predicate": {
+        "eos:size": 9.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_10",
+      "predicate": {
+        "eos:size": 10.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_11",
+      "predicate": {
+        "eos:size": 11.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_12",
+      "predicate": {
+        "eos:size": 12.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_13",
+      "predicate": {
+        "eos:size": 13.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_14",
+      "predicate": {
+        "eos:size": 14.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_15",
+      "predicate": {
+        "eos:size": 15.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_16",
+      "predicate": {
+        "eos:size": 16.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_17",
+      "predicate": {
+        "eos:size": 17.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_18",
+      "predicate": {
+        "eos:size": 18.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_19",
+      "predicate": {
+        "eos:size": 19.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_20",
+      "predicate": {
+        "eos:size": 20.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_21",
+      "predicate": {
+        "eos:size": 21.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_22",
+      "predicate": {
+        "eos:size": 22.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_23",
+      "predicate": {
+        "eos:size": 23.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_24",
+      "predicate": {
+        "eos:size": 24.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_25",
+      "predicate": {
+        "eos:size": 25.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_26",
+      "predicate": {
+        "eos:size": 26.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_27",
+      "predicate": {
+        "eos:size": 27.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_28",
+      "predicate": {
+        "eos:size": 28.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_29",
+      "predicate": {
+        "eos:size": 29.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_30",
+      "predicate": {
+        "eos:size": 30.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_31",
+      "predicate": {
+        "eos:size": 31.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_32",
+      "predicate": {
+        "eos:size": 32.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_33",
+      "predicate": {
+        "eos:size": 33.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_34",
+      "predicate": {
+        "eos:size": 34.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_35",
+      "predicate": {
+        "eos:size": 35.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_36",
+      "predicate": {
+        "eos:size": 36.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_37",
+      "predicate": {
+        "eos:size": 37.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_38",
+      "predicate": {
+        "eos:size": 38.0
+      }
+    },
+    {
+      "model": "eos:item/wukongs_staff/wukongs_staff_39",
+      "predicate": {
+        "eos:size": 39.0
+      }
+    }
+  ]
+}

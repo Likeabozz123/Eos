@@ -10,6 +10,7 @@
   "block.eos.marble_stairs": "Marble Stairs",
   "block.eos.marble_wall": "Marble Wall",
   "block.eos.raw_marble": "Raw Marble",
+  "curios.identifier.ear": "Ear",
   "enchantment.eos.bane_of_pigs": "Bane of Pigs",
   "enchantment.eos.poseidon_luck": "Poseidon Luck",
   "item.eos.cool_ass_stick": "Cool Ass Stick",
@@ -21,5 +22,6 @@
   "item.eos.poseidon_leggings": "Poseidon's Leggings",
   "item.eos.poseidon_trident": "Poseidon's Trident",
   "item.eos.tyrfingr_sword": "Tyrfinger Sword",
+  "item.eos.wukongs_staff": "Wukong's Staff",
   "itemGroup.eos.eos_tab": "Eos Tab"
 }

@@ -40,7 +40,7 @@ public class ItemInit {
 
     public static final DeferredHolder<Item, Item> WUKONGS_STAFF = ITEMS.register("wukongs_staff", () -> new WukongsStaffItem(
             new Item.Properties()
-                    .component(DataComponentsInit.SIZE.value(), new SizeComponent(1, 4))));
+                    .component(DataComponentsInit.SIZE.value(), new SizeComponent(1, WukongsStaffItem.MAX_SIZE))));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

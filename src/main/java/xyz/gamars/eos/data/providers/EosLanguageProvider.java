@@ -25,6 +25,7 @@ public class EosLanguageProvider extends LanguageProvider {
         add(ItemInit.TYRFINGER_SWORD.get(), "Tyrfinger Sword");
 
         add(ItemInit.COOL_ASS_STICK.get(), "Cool Ass Stick");
+        add(ItemInit.WUKONGS_STAFF.get(), "Wukong's Staff");
 
         add(BlockInit.DEV_BLOCK.get(), "Dev Block");
 
@@ -43,7 +44,8 @@ public class EosLanguageProvider extends LanguageProvider {
         add(EnchantmentInit.POSEIDON_LUCK.get(), "Poseidon Luck");
 
 
-
+        add("curios.identifier.ear", "Ear");
+        
         add("itemGroup." + Eos.MOD_ID + ".eos_tab", "Eos Tab");
     }
 

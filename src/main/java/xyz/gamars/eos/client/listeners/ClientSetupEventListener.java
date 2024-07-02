@@ -6,9 +6,11 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import top.theillusivec4.curios.api.CuriosApi;
 import xyz.gamars.eos.Eos;
 import xyz.gamars.eos.common.objects.DataComponentsInit;
 import xyz.gamars.eos.common.objects.ItemInit;
+import xyz.gamars.eos.common.objects.items.wukongsstaff.WukongsStaffItem;
 
 @EventBusSubscriber(modid = Eos.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientSetupEventListener {
@@ -28,6 +30,14 @@ public class ClientSetupEventListener {
                         return stack.get(DataComponentsInit.SIZE.value()).size();
                     }
             );
+
+            CuriosApi.registerCurioPredicate(
+                    new ResourceLocation(Eos.MOD_ID, "ear_equippable"), (slotResult) -> {
+                        if (slotResult.stack().getItem() instanceof WukongsStaffItem) {
+                            return slotResult.stack().get(DataComponentsInit.SIZE.value()).size() == 1;
+                        }
+                        return false;
+                    });
 
 
         });
