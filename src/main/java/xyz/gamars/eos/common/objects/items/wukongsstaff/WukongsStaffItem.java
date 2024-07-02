@@ -6,7 +6,9 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.SingletonGeoAnimatable;
@@ -14,9 +16,16 @@ import software.bernie.geckolib.animatable.client.GeoRenderProvider;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.AnimatableManager;
 import software.bernie.geckolib.util.GeckoLibUtil;
+import top.theillusivec4.curios.api.CuriosApi;
+import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
+import top.theillusivec4.curios.api.type.capability.ICuriosItemHandler;
+import xyz.gamars.eos.Eos;
+import xyz.gamars.eos.client.KeyMappingInit;
 import xyz.gamars.eos.common.components.SizeComponent;
 import xyz.gamars.eos.common.objects.DataComponentsInit;
+import xyz.gamars.eos.network.payloads.PullOutWukongStaffPayload;
+import xyz.gamars.eos.utils.InventoryUtils;
 
 import java.util.function.Consumer;
 
@@ -89,6 +98,19 @@ public class WukongsStaffItem extends Item implements GeoItem, ICurioItem {
         return animatableInstanceCache;
     }
 
+    @Override
+    public void curioTick(SlotContext slotContext, ItemStack stack) {
+
+        while(KeyMappingInit.WHIP_OUT_STAFF.get().consumeClick()) {
+            Player player = (Player) slotContext.entity();
+            if (!InventoryUtils.isInventoryFull(player.getInventory().items)) {
+                PacketDistributor.sendToServer(new PullOutWukongStaffPayload(stack, slotContext.identifier(), slotContext.index()));
+
+            }
 
 
+
+        }
+
+    }
 }

@@ -1,5 +1,6 @@
 package xyz.gamars.eos.common.objects.items;
 
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
@@ -10,7 +11,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
+import net.neoforged.neoforge.network.PacketDistributor;
 import xyz.gamars.eos.common.objects.ParticleTypeInit;
+import xyz.gamars.eos.network.payloads.TestPayload;
 
 public class DevItem extends Item {
 
@@ -21,9 +24,11 @@ public class DevItem extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
 
-        if (!level.isClientSide()) {
+        if (level.isClientSide()) {
+            PacketDistributor.sendToServer(new TestPayload("Hello from the client!"));
+        } else {
+            PacketDistributor.sendToPlayer((ServerPlayer) player, new TestPayload("Hello from the server!"));
         }
-        level.addParticle(ParticleTypeInit.TEST_PARTICLE.get(), player.getX(), player.getY() + 3, player.getZ(), 0, 0, 0);
 
         return super.use(level, player, usedHand);
     }

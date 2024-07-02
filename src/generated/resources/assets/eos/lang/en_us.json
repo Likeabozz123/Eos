@@ -23,5 +23,7 @@
   "item.eos.poseidon_trident": "Poseidon's Trident",
   "item.eos.tyrfingr_sword": "Tyrfinger Sword",
   "item.eos.wukongs_staff": "Wukong's Staff",
-  "itemGroup.eos.eos_tab": "Eos Tab"
+  "itemGroup.eos.eos_tab": "Eos Tab",
+  "key.categories.eos": "Eos",
+  "key.eos.whip_out_staff": "Whip Out Staff"
 }
