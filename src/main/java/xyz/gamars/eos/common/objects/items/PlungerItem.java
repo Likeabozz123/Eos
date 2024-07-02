@@ -1,11 +1,9 @@
 package xyz.gamars.eos.common.objects.items;
 
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import xyz.gamars.eos.common.events.PlayerSwingEvent;
-import xyz.gamars.eos.common.objects.ItemInit;
 
 public class PlungerItem extends Item {
 

@@ -1,21 +1,16 @@
 package xyz.gamars.eos.common.objects;
 
-import com.mojang.datafixers.types.templates.Tag;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.enchantment.DamageEnchantment;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraft.world.item.enchantment.LootBonusEnchantment;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import xyz.gamars.eos.Eos;
 import xyz.gamars.eos.common.objects.enchantments.PoseidonLuckEnchantment;
 
-import javax.swing.text.html.HTML;
 import java.util.Optional;
 
 public class EnchantmentInit {

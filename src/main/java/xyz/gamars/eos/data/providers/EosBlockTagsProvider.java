@@ -8,7 +8,6 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import xyz.gamars.eos.Eos;
 import xyz.gamars.eos.common.objects.BlockInit;
-import xyz.gamars.eos.common.objects.EnchantmentInit;
 
 import java.util.concurrent.CompletableFuture;
 
