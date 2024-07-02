@@ -39,7 +39,7 @@ public class ItemInit {
             () -> new TyrfingrSword(Tiers.NETHERITE, new Item.Properties().attributes(TyrfingrSword.createAttributes(Tiers.DIAMOND, 5, -2f))));
 
     public static final DeferredHolder<Item, Item> WUKONGS_STAFF = ITEMS.register("wukongs_staff", () -> new WukongsStaffItem(
-            new Item.Properties()
+            new Item.Properties().attributes(WukongsStaffItem.createAttributes())
                     .component(DataComponentsInit.SIZE.value(), new SizeComponent(1, WukongsStaffItem.MAX_SIZE))));
 
     public static void register(IEventBus eventBus) {
