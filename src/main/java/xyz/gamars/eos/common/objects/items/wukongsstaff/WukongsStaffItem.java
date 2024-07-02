@@ -100,17 +100,16 @@ public class WukongsStaffItem extends Item implements GeoItem, ICurioItem {
 
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
-
-        while(KeyMappingInit.WHIP_OUT_STAFF.get().consumeClick()) {
-            Player player = (Player) slotContext.entity();
-            if (!InventoryUtils.isInventoryFull(player.getInventory().items)) {
-                PacketDistributor.sendToServer(new PullOutWukongStaffPayload(stack, slotContext.identifier(), slotContext.index()));
-
+        if (slotContext.entity().level().isClientSide()) {
+            while(KeyMappingInit.WHIP_OUT_STAFF.get().consumeClick()) {
+                Player player = (Player) slotContext.entity();
+                if (!InventoryUtils.isInventoryFull(player.getInventory().items)) {
+                    PacketDistributor.sendToServer(new PullOutWukongStaffPayload(stack, slotContext.identifier(), slotContext.index()));
+                }
             }
-
-
-
         }
+
+
 
     }
 }
