@@ -15,11 +15,11 @@ public class PullOutWukongStaffPayloadHandler {
 
     public static class ServerPayloadHandler {
         public static void handleData(PullOutWukongStaffPayload payload, IPayloadContext context) {
-
             context.enqueueWork(() -> {
                 payload.itemStack().update(DataComponentsInit.SIZE.value(), new SizeComponent(1, WukongsStaffItem.MAX_SIZE), s -> {
-                    return new SizeComponent(20, WukongsStaffItem.MAX_SIZE);
+                    return new SizeComponent(5 , WukongsStaffItem.MAX_SIZE);
                 });
+                ((WukongsStaffItem) payload.itemStack().getItem()).updateItem(payload.itemStack());
                 context.player().getInventory().add(payload.itemStack());
 
                 CuriosApi.getCuriosInventory(context.player()).ifPresent( curiosInventory -> {
@@ -29,7 +29,6 @@ public class PullOutWukongStaffPayloadHandler {
                 context.disconnect(Component.literal(e.getMessage()));
                 return null;
             });
-
         }
     }
 

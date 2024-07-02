@@ -86,13 +86,12 @@ public class WukongsStaffItem extends Item implements GeoItem, ICurioItem {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
-
         if (!level.isClientSide()) {
 
             ItemStack item = player.getMainHandItem();
             if (!player.isCrouching()) {
                 item.update(DataComponentsInit.SIZE.value(), new SizeComponent(1, MAX_SIZE), s -> {
-                    
+
                     int size = s.size();
                     size++;
                     if (size > s.maxSize()) {
@@ -114,21 +113,23 @@ public class WukongsStaffItem extends Item implements GeoItem, ICurioItem {
                     return new SizeComponent(size, MAX_SIZE);
                 });
             }
-
-            int size = item.get(DataComponentsInit.SIZE.value()).size();
-            if (size >= 5) {
-                modifyAttributes(item,
-                        10.0 + (10 * (size / 30.0)),
-                        -2.4 - (size / 30.0),
-                        (size / 10.0),
-                        (size / 10.0));
-            } else {
-                resetAttributes(item);
-            }
-
+            updateItem(item);
         }
 
         return super.use(level, player, usedHand);
+    }
+
+    public void updateItem(ItemStack item) {
+        int size = item.get(DataComponentsInit.SIZE.value()).size();
+        if (size >= 5) {
+            modifyAttributes(item,
+                    10.0 + (10 * (size / 30.0)),
+                    -2.4 - (size / 30.0),
+                    (size / 10.0),
+                    (size / 10.0));
+        } else {
+            resetAttributes(item);
+        }
     }
 
     private void modifyAttributes(ItemStack item, double attackDamge, double attackSpeed, double entityReach, double blockReach) {
