@@ -65,12 +65,6 @@ public class WukongsStaffItem extends Item implements GeoItem, ICurioItem {
                 });
             }
 
-            /*SlotContext slotContext = new SlotContext("ear", player, )
-            SlotResult slotResult = new SlotResult()
-            Eos.LOGGER.info(CuriosApi.testCurioPredicates(
-                    new HashSet<>().add(new ResourceLocation(Eos.MOD_ID, "ear_equippable")),
-
-            ));*/
 
         }
 

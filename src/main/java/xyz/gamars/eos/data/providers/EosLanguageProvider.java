@@ -45,7 +45,7 @@ public class EosLanguageProvider extends LanguageProvider {
 
 
         add("curios.identifier.ear", "Ear");
-        
+
         add("itemGroup." + Eos.MOD_ID + ".eos_tab", "Eos Tab");
     }
 
