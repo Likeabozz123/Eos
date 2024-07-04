@@ -32,7 +32,7 @@ public class ArmorMaterialsInit {
             SoundEvents.ARMOR_EQUIP_GENERIC,
             () -> Ingredient.EMPTY,
             List.of(
-                    new ArmorMaterial.Layer(new ResourceLocation(Eos.MOD_ID, "poseidon"))
+                    new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(Eos.MOD_ID, "poseidon"))
             ),
             3.0f,
             0.1f

@@ -17,6 +17,6 @@ public class EosParticleDescriptionProvider extends ParticleDescriptionProvider 
     @Override
     protected void addDescriptions() {
         spriteSet(ParticleTypeInit.TEST_PARTICLE.get(),
-                new ResourceLocation(MOD_ID, "test_particle"), 3, false);
+                ResourceLocation.fromNamespaceAndPath(MOD_ID, "test_particle"), 3, false);
     }
 }

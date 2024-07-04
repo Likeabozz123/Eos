@@ -21,7 +21,7 @@ public class DevBlock extends Block {
 
             if (entity.isSprinting()) {
 
-                level.explode(entity, blockPos.getX(), blockPos.getY(), blockPos.getZ(), 10f, Level.ExplosionInteraction.BLOW);
+                level.explode(entity, blockPos.getX(), blockPos.getY(), blockPos.getZ(), 10f, Level.ExplosionInteraction.TRIGGER);
             }
 
         }

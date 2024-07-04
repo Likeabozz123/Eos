@@ -4,12 +4,10 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import top.theillusivec4.curios.api.CuriosApi;
-import xyz.gamars.eos.Eos;
 import xyz.gamars.eos.common.components.SizeComponent;
 import xyz.gamars.eos.common.objects.DataComponentsInit;
 import xyz.gamars.eos.common.objects.items.wukongsstaff.WukongsStaffItem;
 import xyz.gamars.eos.network.payloads.PullOutWukongStaffPayload;
-import xyz.gamars.eos.network.payloads.TestPayload;
 
 public class PullOutWukongStaffPayloadHandler {
 

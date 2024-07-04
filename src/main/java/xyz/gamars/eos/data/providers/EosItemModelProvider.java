@@ -50,14 +50,14 @@ public class EosItemModelProvider extends ItemModelProvider {
         ResourceLocation resourceLocation = BuiltInRegistries.ITEM.getKey(item);
         return getBuilder(resourceLocation.toString())
                 .parent(new ModelFile.UncheckedModelFile("item/handheld"))
-                .texture("layer0", new ResourceLocation(resourceLocation.getNamespace(), "item/" + resourceLocation.getPath()));
+                .texture("layer0", ResourceLocation.fromNamespaceAndPath(resourceLocation.getNamespace(), "item/" + resourceLocation.getPath()));
     }
 
 
     public ItemModelBuilder blockItem(Block block) {
         ResourceLocation resourceLocation = BuiltInRegistries.BLOCK.getKey(block);
         return getBuilder(resourceLocation.toString())
-                .parent(new ModelFile.UncheckedModelFile(new ResourceLocation(resourceLocation.getNamespace(), "block/" + resourceLocation.getPath())));
+                .parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(resourceLocation.getNamespace(), "block/" + resourceLocation.getPath())));
     }
 
     public ItemModelBuilder wallBlockItem(Block block, Block parentBlock) {
@@ -65,7 +65,7 @@ public class EosItemModelProvider extends ItemModelProvider {
         ResourceLocation parentBlockResourceLocation = BuiltInRegistries.BLOCK.getKey(parentBlock);
         return getBuilder(resourceLocation.toString())
                 .parent(new ModelFile.UncheckedModelFile("block/wall_inventory"))
-                .texture("wall", new ResourceLocation(resourceLocation.getNamespace(), "block/" + parentBlockResourceLocation.getPath()));
+                .texture("wall", ResourceLocation.fromNamespaceAndPath(resourceLocation.getNamespace(), "block/" + parentBlockResourceLocation.getPath()));
     }
 
     public ItemModelBuilder wukongStaff(int maxSize) {
@@ -75,8 +75,8 @@ public class EosItemModelProvider extends ItemModelProvider {
 
         for (int i = 1; i <= maxSize; i++) {
             wukongStaffItemModel = wukongStaffItemModel.override()
-                    .predicate(new ResourceLocation(Eos.MOD_ID, "size"), i)
-                    .model(new ModelFile.UncheckedModelFile(new ResourceLocation(Eos.MOD_ID, "item/wukongs_staff/wukongs_staff_" + i))).end();
+                    .predicate(ResourceLocation.fromNamespaceAndPath(Eos.MOD_ID, "size"), i)
+                    .model(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(Eos.MOD_ID, "item/wukongs_staff/wukongs_staff_" + i))).end();
 
         }
 

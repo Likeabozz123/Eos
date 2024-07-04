@@ -8,7 +8,7 @@ import xyz.gamars.eos.Eos;
 public class CoolAssStickRenderer extends GeoItemRenderer<CoolAssStickItem> {
 
     public CoolAssStickRenderer() {
-        super(new DefaultedItemGeoModel<>(new ResourceLocation(Eos.MOD_ID, "cool_ass_stick")));
+        super(new DefaultedItemGeoModel<>(ResourceLocation.fromNamespaceAndPath(Eos.MOD_ID, "cool_ass_stick")));
     }
 
 

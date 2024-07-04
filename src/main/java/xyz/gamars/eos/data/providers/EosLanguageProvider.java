@@ -1,10 +1,12 @@
 package xyz.gamars.eos.data.providers;
 
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import xyz.gamars.eos.Eos;
 import xyz.gamars.eos.common.objects.BlockInit;
-import xyz.gamars.eos.common.objects.EnchantmentInit;
 import xyz.gamars.eos.common.objects.ItemInit;
 
 public class EosLanguageProvider extends LanguageProvider {
@@ -40,8 +42,8 @@ public class EosLanguageProvider extends LanguageProvider {
         add(BlockInit.MARBLE_SLAB.get(), "Marble Slab");
         add(BlockInit.MARBLE_WALL.get(), "Marble Wall");
 
-        add(EnchantmentInit.BANE_OF_PIGS.get(), "Bane of Pigs");
-        add(EnchantmentInit.POSEIDON_LUCK.get(), "Poseidon Luck");
+        addEnchantment(EosEnchantmentDataProvider.BANE_OF_PIGS, "Bane of Pigs");
+        addEnchantment(EosEnchantmentDataProvider.POSEIDON_LUCK, "Poseidon Luck");
 
 
         add("curios.identifier.ear", "Ear");
@@ -55,5 +57,9 @@ public class EosLanguageProvider extends LanguageProvider {
     @Override
     public String getName() {
         return "Taking over the world by creating names for our items...";
+    }
+
+    public void addEnchantment(ResourceKey<Enchantment> enchantment, String name) {
+        add("enchantment." + Eos.MOD_ID + "." + enchantment.location().getPath(), name);
     }
 }

@@ -1,19 +1,19 @@
 package xyz.gamars.eos.common.objects.items;
 
 import net.minecraft.core.Holder;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.FishingHook;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.minecraft.world.level.Level;
-import xyz.gamars.eos.common.objects.EnchantmentInit;
 import xyz.gamars.eos.common.objects.ItemInit;
+import xyz.gamars.eos.data.providers.EosEnchantmentDataProvider;
 
 import java.util.ArrayList;
 
@@ -45,11 +45,15 @@ public class PoseidonArmorItem extends ArmorItem {
             }
 
             if (armorSlots.get(3).is(ItemInit.POSEIDON_HELMET.get())) {
-                if (ItemInit.POSEIDON_HELMET.get().getAllEnchantments(itemStack).equals(EnchantmentInit.POSEIDON_LUCK)) {
-                    int k = EnchantmentHelper.getFishingSpeedBonus(itemStack);
-                    int j = EnchantmentHelper.getFishingLuckBonus(itemStack);
+                ServerLevel serverLevel = (ServerLevel) level;
+                ItemEnchantments itemEnchantments = itemStack.getAllEnchantments(serverLevel.registryAccess().lookupOrThrow(Registries.ENCHANTMENT));
+                if (itemEnchantments.keySet().contains(serverLevel.registryAccess().holderOrThrow(EosEnchantmentDataProvider.POSEIDON_LUCK))) {
+                    // pretty sure u dont need this
+
+                    /*float k = EnchantmentHelper.getFishingTimeReduction((ServerLevel) level, itemStack, entity);
+                    float j = EnchantmentHelper.getFishingLuckBonus((ServerLevel) level, itemStack, entity);
                     Player pEntity = (Player) livingEntity;
-                    level.addFreshEntity(new FishingHook(pEntity, level, j, k));
+                    level.addFreshEntity(new FishingHook(pEntity, level, j, k));*/
                 }
             }
         }

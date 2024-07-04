@@ -8,6 +8,6 @@ import xyz.gamars.eos.Eos;
 public class WukongsStaffRenderer extends GeoItemRenderer<WukongsStaffItem> {
 
     public WukongsStaffRenderer() {
-        super(new DefaultedItemGeoModel<>(new ResourceLocation(Eos.MOD_ID, "wukongs_staff")));
+        super(new DefaultedItemGeoModel<>(ResourceLocation.fromNamespaceAndPath(Eos.MOD_ID, "wukongs_staff")));
     }
 }

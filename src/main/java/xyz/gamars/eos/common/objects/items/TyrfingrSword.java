@@ -5,7 +5,6 @@ import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
@@ -32,12 +31,12 @@ public class TyrfingrSword extends SwordItem {
                                 ItemAttributeModifiers.builder()
                                         .add(
                                                 Attributes.ATTACK_DAMAGE,
-                                                new AttributeModifier(Item.BASE_ATTACK_DAMAGE_UUID, "Tool modifier", 5.0f, AttributeModifier.Operation.ADD_VALUE),
+                                                new AttributeModifier(BASE_ATTACK_DAMAGE_ID, 5.0f, AttributeModifier.Operation.ADD_VALUE),
                                                 EquipmentSlotGroup.MAINHAND
                                         )
                                         .add(
                                                 Attributes.ATTACK_SPEED,
-                                                new AttributeModifier(Item.BASE_ATTACK_SPEED_UUID, "Tool modifier", 10, AttributeModifier.Operation.ADD_VALUE),
+                                                new AttributeModifier(BASE_ATTACK_SPEED_ID, 10, AttributeModifier.Operation.ADD_VALUE),
                                                 EquipmentSlotGroup.MAINHAND
                                         )
                                         .build());
@@ -46,12 +45,12 @@ public class TyrfingrSword extends SwordItem {
                                 ItemAttributeModifiers.builder()
                                         .add(
                                                 Attributes.ATTACK_DAMAGE,
-                                                new AttributeModifier(Item.BASE_ATTACK_DAMAGE_UUID, "Tool modifier", 50.0f, AttributeModifier.Operation.ADD_VALUE),
+                                                new AttributeModifier(BASE_ATTACK_DAMAGE_ID, 50.0f, AttributeModifier.Operation.ADD_VALUE),
                                                 EquipmentSlotGroup.MAINHAND
                                         )
                                         .add(
                                                 Attributes.ATTACK_SPEED,
-                                                new AttributeModifier(Item.BASE_ATTACK_SPEED_UUID, "Tool modifier", -10f, AttributeModifier.Operation.ADD_VALUE),
+                                                new AttributeModifier(BASE_ATTACK_SPEED_ID, -10f, AttributeModifier.Operation.ADD_VALUE),
                                                 EquipmentSlotGroup.MAINHAND
                                         )
                                         .build());

@@ -12,7 +12,6 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.network.PacketDistributor;
-import xyz.gamars.eos.common.objects.ParticleTypeInit;
 import xyz.gamars.eos.network.payloads.TestPayload;
 
 public class DevItem extends Item {

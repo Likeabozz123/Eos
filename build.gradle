@@ -3,7 +3,7 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.gradle.userdev' version '7.0.142'
+    id 'net.neoforged.gradle.userdev' version '7.0.152'
 }
 
 version = mod_version
@@ -24,9 +24,14 @@ repositories {
         url = "https://modmaven.dev"
     }
 
-    maven {
+   /* maven {
         name = "Illusive Soulworks maven"
         url = "https://maven.theillusivec4.top/"
+    }*/
+
+    maven {
+        name = "OctoStudios"
+        url = uri("https://maven.octo-studios.com/releases")
     }
 
     maven {
@@ -116,8 +121,7 @@ dependencies {
     // at runtime, use the full JEI jar for NeoForge
     runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
 
-    runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}"
-    compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}:api"
+    implementation "top.theillusivec4.curios:curios-neoforge:${curios_version}"
 
     implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
 }

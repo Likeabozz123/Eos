@@ -20,7 +20,7 @@ public class EosCuriosDataProvider extends CuriosDataProvider {
     public void generate(HolderLookup.Provider registries, ExistingFileHelper fileHelper) {
         createSlot("ear")
                 .size(1)
-                .addValidator(new ResourceLocation(Eos.MOD_ID, "ear_equippable"));
+                .addValidator(ResourceLocation.fromNamespaceAndPath(Eos.MOD_ID, "ear_equippable"));
 
         createEntities("ear")
                 .addSlots("ear")

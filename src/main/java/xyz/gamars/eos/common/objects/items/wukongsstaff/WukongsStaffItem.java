@@ -1,8 +1,6 @@
 package xyz.gamars.eos.common.objects.items.wukongsstaff;
 
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
-import net.minecraft.core.component.DataComponentType;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.EquipmentSlotGroup;
@@ -23,15 +21,13 @@ import software.bernie.geckolib.animation.AnimatableManager;
 import software.bernie.geckolib.util.GeckoLibUtil;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
-import xyz.gamars.eos.Eos;
 import xyz.gamars.eos.client.KeyMappingInit;
 import xyz.gamars.eos.common.components.SizeComponent;
-import xyz.gamars.eos.common.objects.AttributeUUIDs;
+import xyz.gamars.eos.common.objects.AttributeLocations;
 import xyz.gamars.eos.common.objects.DataComponentsInit;
 import xyz.gamars.eos.network.payloads.PullOutWukongStaffPayload;
 import xyz.gamars.eos.utils.InventoryUtils;
 
-import java.util.UUID;
 import java.util.function.Consumer;
 
 public class WukongsStaffItem extends Item implements GeoItem, ICurioItem {
@@ -50,8 +46,7 @@ public class WukongsStaffItem extends Item implements GeoItem, ICurioItem {
                 .add(
                         Attributes.ATTACK_DAMAGE,
                         new AttributeModifier(
-                                BASE_ATTACK_DAMAGE_UUID,
-                                "Weapon modifier",
+                                BASE_ATTACK_DAMAGE_ID,
                                 10.0,
                                 AttributeModifier.Operation.ADD_VALUE
                         ),
@@ -59,23 +54,20 @@ public class WukongsStaffItem extends Item implements GeoItem, ICurioItem {
                 )
                 .add(
                         Attributes.ATTACK_SPEED,
-                        new AttributeModifier(BASE_ATTACK_SPEED_UUID,
-                                "Weapon modifier",
+                        new AttributeModifier(BASE_ATTACK_SPEED_ID,
                                 -2.4f,
                                 AttributeModifier.Operation.ADD_VALUE),
                         EquipmentSlotGroup.MAINHAND
                 ).add(
                         Attributes.ENTITY_INTERACTION_RANGE,
-                        new AttributeModifier(AttributeUUIDs.ENTITY_INTERACTION_RANGE_UUID,
-                                "Weapon modifier",
+                        new AttributeModifier(AttributeLocations.ENTITY_INTERACTION_RANGE,
                                 0,
                                 AttributeModifier.Operation.ADD_VALUE
                                 ),
                                 EquipmentSlotGroup.MAINHAND
                 ).add(
                         Attributes.BLOCK_INTERACTION_RANGE  ,
-                        new AttributeModifier(AttributeUUIDs.BLOCK_INTERACTION_RANGE_UUID,
-                                "Weapon modifier",
+                        new AttributeModifier(AttributeLocations.BLOCK_INTERACTION_RANGE,
                                 0,
                                 AttributeModifier.Operation.ADD_VALUE
                         ),
@@ -134,29 +126,25 @@ public class WukongsStaffItem extends Item implements GeoItem, ICurioItem {
 
     private void modifyAttributes(ItemStack item, double attackDamge, double attackSpeed, double entityReach, double blockReach) {
         InventoryUtils.modifyItemAttribute(item, Attributes.ATTACK_DAMAGE,
-                new AttributeModifier(BASE_ATTACK_DAMAGE_UUID,
-                        "Weapon Modifier",
+                new AttributeModifier(BASE_ATTACK_DAMAGE_ID,
                         attackDamge,
                         AttributeModifier.Operation.ADD_VALUE
                 ), EquipmentSlotGroup.MAINHAND
         );
         InventoryUtils.modifyItemAttribute(item, Attributes.ATTACK_SPEED,
-                new AttributeModifier(BASE_ATTACK_SPEED_UUID,
-                        "Weapon Modifier",
+                new AttributeModifier(BASE_ATTACK_SPEED_ID,
                         attackSpeed,
                         AttributeModifier.Operation.ADD_VALUE
                 ), EquipmentSlotGroup.MAINHAND
         );
         InventoryUtils.modifyItemAttribute(item, Attributes.ENTITY_INTERACTION_RANGE,
-                new AttributeModifier(AttributeUUIDs.ENTITY_INTERACTION_RANGE_UUID,
-                        "Weapon Modifier",
+                new AttributeModifier(AttributeLocations.ENTITY_INTERACTION_RANGE,
                         entityReach,
                         AttributeModifier.Operation.ADD_VALUE
                 ), EquipmentSlotGroup.MAINHAND
         );
         InventoryUtils.modifyItemAttribute(item, Attributes.BLOCK_INTERACTION_RANGE,
-                new AttributeModifier(AttributeUUIDs.BLOCK_INTERACTION_RANGE_UUID,
-                        "Weapon Modifier",
+                new AttributeModifier(AttributeLocations.BLOCK_INTERACTION_RANGE,
                         blockReach,
                         AttributeModifier.Operation.ADD_VALUE
                 ), EquipmentSlotGroup.MAINHAND
@@ -165,29 +153,25 @@ public class WukongsStaffItem extends Item implements GeoItem, ICurioItem {
 
     private void resetAttributes(ItemStack item) {
         InventoryUtils.modifyItemAttribute(item, Attributes.ATTACK_DAMAGE,
-                new AttributeModifier(BASE_ATTACK_DAMAGE_UUID,
-                        "Weapon Modifier",
+                new AttributeModifier(BASE_ATTACK_DAMAGE_ID,
                         10.0,
                         AttributeModifier.Operation.ADD_VALUE
                 ), EquipmentSlotGroup.MAINHAND
         );
         InventoryUtils.modifyItemAttribute(item, Attributes.ATTACK_SPEED,
-                new AttributeModifier(BASE_ATTACK_SPEED_UUID,
-                        "Weapon Modifier",
+                new AttributeModifier(BASE_ATTACK_SPEED_ID,
                         -2.4,
                         AttributeModifier.Operation.ADD_VALUE
                 ), EquipmentSlotGroup.MAINHAND
         );
         InventoryUtils.modifyItemAttribute(item, Attributes.ENTITY_INTERACTION_RANGE,
-                new AttributeModifier(AttributeUUIDs.ENTITY_INTERACTION_RANGE_UUID,
-                        "Weapon Modifier",
+                new AttributeModifier(AttributeLocations.ENTITY_INTERACTION_RANGE,
                         0,
                         AttributeModifier.Operation.ADD_VALUE
                 ), EquipmentSlotGroup.MAINHAND
         );
         InventoryUtils.modifyItemAttribute(item, Attributes.BLOCK_INTERACTION_RANGE,
-                new AttributeModifier(AttributeUUIDs.BLOCK_INTERACTION_RANGE_UUID,
-                        "Weapon Modifier",
+                new AttributeModifier(AttributeLocations.BLOCK_INTERACTION_RANGE,
                         0,
                         AttributeModifier.Operation.ADD_VALUE
                 ), EquipmentSlotGroup.MAINHAND

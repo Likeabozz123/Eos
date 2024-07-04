@@ -9,7 +9,7 @@ import xyz.gamars.eos.Eos;
 
 public record TestPayload(String message) implements CustomPacketPayload {
 
-    public static final CustomPacketPayload.Type<TestPayload> TYPE = new CustomPacketPayload.Type<>(new ResourceLocation(Eos.MOD_ID, "test_payload"));
+    public static final CustomPacketPayload.Type<TestPayload> TYPE = new CustomPacketPayload.Type<>(ResourceLocation.fromNamespaceAndPath(Eos.MOD_ID, "test_payload"));
 
     public static final StreamCodec<ByteBuf, TestPayload> STREAM_CODEC = StreamCodec.composite(
             ByteBufCodecs.STRING_UTF8,

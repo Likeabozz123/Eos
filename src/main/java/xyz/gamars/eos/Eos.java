@@ -22,7 +22,6 @@ public class Eos
         BlockInit.register(eventBus);
         BlockEntityTypeInit.register(eventBus);
         ArmorMaterialsInit.register(eventBus);
-        EnchantmentInit.register(eventBus);
         CreativeTabInit.register(eventBus);
         ParticleTypeInit.register(eventBus);
         DataComponentsInit.register(eventBus);
@@ -33,7 +32,7 @@ public class Eos
 
     public static void registerCurioPredicates() {
         CuriosApi.registerCurioPredicate(
-                new ResourceLocation(Eos.MOD_ID, "ear_equippable"), (slotResult) -> {
+                ResourceLocation.fromNamespaceAndPath(Eos.MOD_ID, "ear_equippable"), (slotResult) -> {
                     if (slotResult.stack().getItem() instanceof WukongsStaffItem) {
                         return slotResult.stack().get(DataComponentsInit.SIZE.value()).size() == 1;
                     }
