@@ -27,8 +27,10 @@ public abstract class MixinLivingEntity extends Entity {
 
 
     @Inject(method = "swing(Lnet/minecraft/world/InteractionHand;Z)V", at = @At(value = "FIELD", target = "Lnet/minecraft/world/entity/LivingEntity;swingTime:I", opcode = Opcodes.PUTFIELD))
-    public void swing(InteractionHand pHand, boolean pUpdateSelf, CallbackInfo ci) {
-        NeoForge.EVENT_BUS.post(new PlayerSwingEvent((Player) (Object) this, swingTime));
+    public void swing(InteractionHand hand, boolean updateSelf, CallbackInfo ci) {
+        if ((LivingEntity) (Object) this instanceof Player) {
+            NeoForge.EVENT_BUS.post(new PlayerSwingEvent((Player) (Object) this, swingTime));
+        }
     }
 
 
