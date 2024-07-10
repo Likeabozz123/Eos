@@ -6,6 +6,7 @@ import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -27,16 +28,18 @@ public class MixinEnchantmentHelper {
     @Inject(method = "getFishingLuckBonus(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/Entity;)I",
             at = @At("RETURN"))
     private static void getFishingLuckBonus(ServerLevel level, ItemStack stack, Entity entity, CallbackInfoReturnable<Integer> cir, @Local MutableFloat mutableFloat) {
-        ArrayList<ItemStack> armor = new ArrayList<>();
-        Player player = (Player) entity;
-        RegistryAccess registryAccess = level.registryAccess();
-        player.getArmorSlots().forEach(armor::add);
+        if (entity instanceof LivingEntity) {
+            ArrayList<ItemStack> armor = new ArrayList<>();
+            LivingEntity livingEntity = (LivingEntity) entity;
+            RegistryAccess registryAccess = level.registryAccess();
+            livingEntity.getArmorSlots().forEach(armor::add);
 
-        Holder<Enchantment> poseidonLuck = registryAccess.holderOrThrow(EosEnchantmentDataProvider.POSEIDON_LUCK);
-        ItemEnchantments itemEnchantments = armor.get(3).getAllEnchantments(registryAccess.lookupOrThrow(Registries.ENCHANTMENT));
-        if (itemEnchantments.keySet().contains(poseidonLuck)) {
-            mutableFloat.add(itemEnchantments.getLevel(poseidonLuck));
-            Eos.LOGGER.info(mutableFloat.toString());
+            Holder<Enchantment> poseidonLuck = registryAccess.holderOrThrow(EosEnchantmentDataProvider.POSEIDON_LUCK);
+            ItemEnchantments itemEnchantments = armor.get(3).getAllEnchantments(registryAccess.lookupOrThrow(Registries.ENCHANTMENT));
+            if (itemEnchantments.keySet().contains(poseidonLuck)) {
+                mutableFloat.add(itemEnchantments.getLevel(poseidonLuck));
+                Eos.LOGGER.info(mutableFloat.toString());
+            }
         }
     }
 
