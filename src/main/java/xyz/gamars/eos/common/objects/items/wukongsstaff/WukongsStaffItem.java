@@ -124,10 +124,10 @@ public class WukongsStaffItem extends Item implements GeoItem, ICurioItem {
         }
     }
 
-    private void modifyAttributes(ItemStack item, double attackDamge, double attackSpeed, double entityReach, double blockReach) {
+    private void modifyAttributes(ItemStack item, double attackDamage, double attackSpeed, double entityReach, double blockReach) {
         InventoryUtils.modifyItemAttribute(item, Attributes.ATTACK_DAMAGE,
                 new AttributeModifier(BASE_ATTACK_DAMAGE_ID,
-                        attackDamge,
+                        attackDamage,
                         AttributeModifier.Operation.ADD_VALUE
                 ), EquipmentSlotGroup.MAINHAND
         );
