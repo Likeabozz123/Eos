@@ -1,8 +1,10 @@
 package xyz.gamars.eos.common.objects;
 
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.util.FastColor;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.Tiers;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -12,6 +14,8 @@ import xyz.gamars.eos.common.components.SizeComponent;
 import xyz.gamars.eos.common.objects.items.*;
 import xyz.gamars.eos.common.objects.items.coolassstick.CoolAssStickItem;
 import xyz.gamars.eos.common.objects.items.wukongsstaff.WukongsStaffItem;
+
+import java.awt.*;
 
 public class ItemInit {
 
@@ -38,9 +42,19 @@ public class ItemInit {
     public static final DeferredHolder<Item, TyrfingrSword> TYRFINGER_SWORD = ITEMS.register("tyrfingr_sword",
             () -> new TyrfingrSword(Tiers.NETHERITE, new Item.Properties().attributes(TyrfingrSword.createAttributes(Tiers.DIAMOND, 5, -2f))));
 
-    public static final DeferredHolder<Item, Item> WUKONGS_STAFF = ITEMS.register("wukongs_staff", () -> new WukongsStaffItem(
+    public static final DeferredHolder<Item, WukongsStaffItem> WUKONGS_STAFF = ITEMS.register("wukongs_staff", () -> new WukongsStaffItem(
             new Item.Properties().attributes(WukongsStaffItem.createAttributes())
                     .component(DataComponentsInit.SIZE.value(), new SizeComponent(1, WukongsStaffItem.MAX_SIZE))));
+
+    public static final DeferredHolder<Item, SpawnEggItem> STONE_EGG_SPAWN_EGG = ITEMS.register("stone_egg_spawn_egg",
+            () -> new SpawnEggItem(EntityTypeInit.STONE_EGG.get(),
+                    FastColor.ABGR32.color(1, 128, 128, 128),
+                    FastColor.ABGR32.color(1, 50, 50, 50), new Item.Properties()));
+
+    public static final DeferredHolder<Item, SpawnEggItem> MONKEY_SPAWN_EGG = ITEMS.register("monkey_spawn_egg",
+            () -> new SpawnEggItem(EntityTypeInit.MONKEY.get(),
+                    FastColor.ABGR32.color(1, 112, 65, 0),
+                    FastColor.ABGR32.color(1, 74, 43, 0), new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

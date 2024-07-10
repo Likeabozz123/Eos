@@ -32,6 +32,9 @@ public class EosItemModelProvider extends ItemModelProvider {
 
         wukongStaff(WukongsStaffItem.MAX_SIZE);
 
+        spawnEggItem(ItemInit.STONE_EGG_SPAWN_EGG.get());
+        spawnEggItem(ItemInit.MONKEY_SPAWN_EGG.get());
+
         blockItem(BlockInit.DEV_BLOCK.get());
 
         blockItem(BlockInit.RAW_MARBLE.get());
@@ -68,6 +71,12 @@ public class EosItemModelProvider extends ItemModelProvider {
                 .texture("wall", ResourceLocation.fromNamespaceAndPath(resourceLocation.getNamespace(), "block/" + parentBlockResourceLocation.getPath()));
     }
 
+    public ItemModelBuilder spawnEggItem(Item item) {
+        ResourceLocation resourceLocation = BuiltInRegistries.ITEM.getKey(item);
+        return getBuilder(resourceLocation.toString())
+                .parent(new ModelFile.UncheckedModelFile("minecraft:item/template_spawn_egg"));
+    }
+
     public ItemModelBuilder wukongStaff(int maxSize) {
         ResourceLocation wukongStaffModLoc = BuiltInRegistries.ITEM.getKey(ItemInit.WUKONGS_STAFF.get());
         ItemModelBuilder wukongStaffItemModel = getBuilder(wukongStaffModLoc.toString())
@@ -79,7 +88,6 @@ public class EosItemModelProvider extends ItemModelProvider {
                     .model(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(Eos.MOD_ID, "item/wukongs_staff/wukongs_staff_" + i))).end();
 
         }
-
         return wukongStaffItemModel;
     }
 

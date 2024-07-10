@@ -2,7 +2,6 @@ package xyz.gamars.eos.data.providers;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import xyz.gamars.eos.Eos;
@@ -28,6 +27,9 @@ public class EosLanguageProvider extends LanguageProvider {
 
         add(ItemInit.COOL_ASS_STICK.get(), "Cool Ass Stick");
         add(ItemInit.WUKONGS_STAFF.get(), "Wukong's Staff");
+
+        add(ItemInit.STONE_EGG_SPAWN_EGG.get(), "Stone Egg Spawn Egg");
+        add(ItemInit.MONKEY_SPAWN_EGG.get(), "Monkey Spawn Egg");
 
         add(BlockInit.DEV_BLOCK.get(), "Dev Block");
 

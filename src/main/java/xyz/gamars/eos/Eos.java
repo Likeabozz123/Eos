@@ -21,6 +21,7 @@ public class Eos
         ItemInit.register(eventBus);
         BlockInit.register(eventBus);
         BlockEntityTypeInit.register(eventBus);
+        EntityTypeInit.register(eventBus);
         ArmorMaterialsInit.register(eventBus);
         CreativeTabInit.register(eventBus);
         ParticleTypeInit.register(eventBus);

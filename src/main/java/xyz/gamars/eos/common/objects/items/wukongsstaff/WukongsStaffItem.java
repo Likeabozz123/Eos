@@ -117,8 +117,8 @@ public class WukongsStaffItem extends Item implements GeoItem, ICurioItem {
             modifyAttributes(item,
                     10.0 + (10 * (size / 30.0)),
                     -2.4 - (size / 30.0),
-                    (size / 10.0),
-                    (size / 10.0));
+                    ((size + 1) / 10.0),
+                    ((size + 1) / 10.0));
         } else {
             resetAttributes(item);
         }
@@ -190,6 +190,7 @@ public class WukongsStaffItem extends Item implements GeoItem, ICurioItem {
 
                 return this.renderer;
             }
+
         });
     }
 
