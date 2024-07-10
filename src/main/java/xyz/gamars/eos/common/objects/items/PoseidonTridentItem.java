@@ -140,7 +140,7 @@ public class PoseidonTridentItem extends Item implements ProjectileItem {
                 if (!level.isClientSide()) {
                     stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(entityLiving.getUsedItemHand()));
                     ThrownTrident throwntrident = new ThrownTrident(level, player, stack);
-                    throwntrident.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.5F, 1.0F);
+                    throwntrident.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.5F, 0);
                     if (player.hasInfiniteMaterials()) {
                         throwntrident.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
                     }

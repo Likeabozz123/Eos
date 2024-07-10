@@ -24,7 +24,7 @@ import xyz.gamars.eos.data.providers.EosEnchantmentDataProvider;
 public class MixinEnchantmentHelper {
 
     @Inject(method = "getFishingLuckBonus(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/Entity;)I",
-            at = @At(value = "RETURN"))
+            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/enchantment/EnchantmentHelper;runIterationOnItem(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/enchantment/EnchantmentHelper$EnchantmentVisitor;)V"))
     private static void getFishingLuckBonus(ServerLevel level, ItemStack stack, Entity entity, CallbackInfoReturnable<Integer> cir, @Local MutableFloat mutableFloat) {
         if (entity instanceof LivingEntity) {
             LivingEntity livingEntity = (LivingEntity) entity;
@@ -33,7 +33,6 @@ public class MixinEnchantmentHelper {
             Holder<Enchantment> poseidonLuck = registryAccess.holderOrThrow(EosEnchantmentDataProvider.POSEIDON_LUCK);
             ItemEnchantments itemEnchantments = livingEntity.getItemBySlot(EquipmentSlot.HEAD).getAllEnchantments(registryAccess.lookupOrThrow(Registries.ENCHANTMENT));
             mutableFloat.add(itemEnchantments.getLevel(poseidonLuck));
-            Eos.LOGGER.info(mutableFloat.toString());
         }
     }
 
