@@ -1,4 +1,4 @@
-package xyz.gamars.eos.common.objects.items;
+package xyz.gamars.eos.common.objects.items.poseidon;
 
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -12,16 +12,16 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EquipmentSlotGroup;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.MoverType;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.ThrownTrident;
+import net.minecraft.world.entity.projectile.windcharge.WindCharge;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ProjectileItem;
@@ -31,7 +31,9 @@ import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import xyz.gamars.eos.common.events.PlayerSwingEvent;
 import xyz.gamars.eos.common.objects.ItemInit;
+import xyz.gamars.eos.utils.InventoryUtils;
 
 import java.util.ArrayList;
 
@@ -88,6 +90,16 @@ public class PoseidonTridentItem extends Item implements ProjectileItem {
                                 .build());
 
 
+               /* InventoryUtils.modifyItemAttribute(
+                        livingEntity.getMainHandItem(),
+                        Attributes.ATTACK_DAMAGE,
+                        new AttributeModifier(BASE_ATTACK_DAMAGE_ID, 16, AttributeModifier.Operation.ADD_VALUE),
+                        EquipmentSlotGroup.MAINHAND);
+                InventoryUtils.modifyItemAttribute(
+                        livingEntity.getMainHandItem(),
+                        Attributes.ATTACK_SPEED,
+                        new AttributeModifier(BASE_ATTACK_SPEED_ID, 0, AttributeModifier.Operation.ADD_VALUE),
+                        EquipmentSlotGroup.MAINHAND);*/
 
             } else {
                 itemStack.set(DataComponents.ATTRIBUTE_MODIFIERS,
@@ -103,6 +115,17 @@ public class PoseidonTridentItem extends Item implements ProjectileItem {
                                         EquipmentSlotGroup.MAINHAND
                                 )
                                 .build());
+
+                /*InventoryUtils.modifyItemAttribute(
+                        livingEntity.getMainHandItem(),
+                        Attributes.ATTACK_DAMAGE,
+                        new AttributeModifier(BASE_ATTACK_DAMAGE_ID, 0, AttributeModifier.Operation.ADD_VALUE),
+                        EquipmentSlotGroup.MAINHAND);
+                InventoryUtils.modifyItemAttribute(
+                        livingEntity.getMainHandItem(),
+                        Attributes.ATTACK_SPEED,
+                        new AttributeModifier(BASE_ATTACK_SPEED_ID, 0, AttributeModifier.Operation.ADD_VALUE),
+                        EquipmentSlotGroup.MAINHAND);*/
             }
         }
 
@@ -140,7 +163,7 @@ public class PoseidonTridentItem extends Item implements ProjectileItem {
                 if (!level.isClientSide()) {
                     stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(entityLiving.getUsedItemHand()));
                     ThrownTrident throwntrident = new ThrownTrident(level, player, stack);
-                    throwntrident.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.5F, 1.0F);
+                    throwntrident.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.5F, 0.0F);
                     if (player.hasInfiniteMaterials()) {
                         throwntrident.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
                     }
@@ -158,6 +181,16 @@ public class PoseidonTridentItem extends Item implements ProjectileItem {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
         player.startUsingItem(hand);
+
+        if (!level.isClientSide()) {
+            if (player.isCrouching()) {
+                WindCharge windcharge = new WindCharge(player, level, player.position().x(), player.getEyePosition().y(), player.position().z());
+                windcharge.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.5F, 0.0F);
+                level.addFreshEntity(windcharge);
+            }
+        }
+
+
         return InteractionResultHolder.consume(itemstack);
     }
 
@@ -170,5 +203,15 @@ public class PoseidonTridentItem extends Item implements ProjectileItem {
     @Override
     public int getUseDuration(ItemStack stack, LivingEntity entity) {
         return 72000;
+    }
+
+
+    public void onPlayerSwing(PlayerSwingEvent event) {
+        if (event.getItemSwung().is(this)) {
+            Player player = event.getEntity();
+            if (player.isCrouching()) {
+                player.addEffect(new MobEffectInstance(MobEffects.HARM));
+            }
+        }
     }
 }

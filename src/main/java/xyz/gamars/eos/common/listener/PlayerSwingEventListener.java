@@ -17,6 +17,7 @@ public class PlayerSwingEventListener {
         ItemInit.COOL_ASS_STICK.get().onPlayerSwing(event);
         ItemInit.PLUNGER.get().onPlayerSwing(event);
         ItemInit.TYRFINGER_SWORD.get().onPlayerSwing(event);
+        ItemInit.POSEIDON_TRIDENT.get().onPlayerSwing(event);
 
     }
 }

@@ -1,4 +1,4 @@
-package xyz.gamars.eos.common.objects.items;
+package xyz.gamars.eos.common.objects.items.poseidon;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
@@ -7,6 +7,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
@@ -35,13 +36,17 @@ public class PoseidonArmorItem extends ArmorItem {
                     && armorSlots.get(2).is(ItemInit.POSEIDON_CHESTPLATE.get())
                     && armorSlots.get(1).is(ItemInit.POSEIDON_LEGGINGS.get())
                     && armorSlots.get(0).is(ItemInit.POSEIDON_BOOTS.get())) {
-                livingEntity.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 40, 0, false, false));
-                livingEntity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 40, 1 , false, false));
-
+                if (livingEntity.tickCount % 40 == 0) {
+                    livingEntity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 220, 4, false, false));
+                }
             }
 
-            if (armorSlots.get(3).is(ItemInit.POSEIDON_HELMET.get()) && livingEntity.isInWater()) {
-                livingEntity.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 40, 1, false, true));
+            if (armorSlots.get(3).is(ItemInit.POSEIDON_HELMET.get())) {
+                livingEntity.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 220, 1, false, false));
+                if (livingEntity.isInWater()) {
+                    livingEntity.addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 220, 1, false, false));
+                    livingEntity.addEffect(new MobEffectInstance(MobEffects.CONDUIT_POWER,220, 10, false, false));
+                }
             }
 
             if (armorSlots.get(3).is(ItemInit.POSEIDON_HELMET.get())) {

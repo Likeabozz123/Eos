@@ -93,7 +93,7 @@ public class EosEnchantmentDataProvider {
                                         EquipmentSlotGroup.MAINHAND
                                 )
                         )
-                        .withEffect(EnchantmentEffectComponents.FISHING_LUCK_BONUS, new AddValue(LevelBasedValue.perLevel(1.0F))));
+                        .withEffect(EnchantmentEffectComponents.FISHING_LUCK_BONUS, new AddValue(LevelBasedValue.perLevel(5.0F))));
 
     }
 

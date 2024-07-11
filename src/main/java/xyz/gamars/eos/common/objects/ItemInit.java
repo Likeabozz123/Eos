@@ -12,10 +12,12 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import xyz.gamars.eos.Eos;
 import xyz.gamars.eos.common.components.SizeComponent;
 import xyz.gamars.eos.common.objects.items.*;
+import xyz.gamars.eos.common.objects.items.apollo.ApolloBowItem;
 import xyz.gamars.eos.common.objects.items.coolassstick.CoolAssStickItem;
+import xyz.gamars.eos.common.objects.items.poseidon.PoseidonArmorItem;
+import xyz.gamars.eos.common.objects.items.poseidon.PoseidonChargeItem;
+import xyz.gamars.eos.common.objects.items.poseidon.PoseidonTridentItem;
 import xyz.gamars.eos.common.objects.items.wukongsstaff.WukongsStaffItem;
-
-import java.awt.*;
 
 public class ItemInit {
 
@@ -39,12 +41,19 @@ public class ItemInit {
     public static final DeferredHolder<Item, PoseidonTridentItem> POSEIDON_TRIDENT = ITEMS.register("poseidon_trident",
             () -> new PoseidonTridentItem(new Item.Properties().attributes(PoseidonTridentItem.createAttributes())));
 
+    public static final DeferredHolder<Item, PoseidonChargeItem> POSEIDON_CHARGE = ITEMS.register("poseidon_charge",
+            () -> new PoseidonChargeItem(new Item.Properties()));
+
     public static final DeferredHolder<Item, TyrfingrSword> TYRFINGER_SWORD = ITEMS.register("tyrfingr_sword",
             () -> new TyrfingrSword(Tiers.NETHERITE, new Item.Properties().attributes(TyrfingrSword.createAttributes(Tiers.DIAMOND, 5, -2f))));
 
     public static final DeferredHolder<Item, WukongsStaffItem> WUKONGS_STAFF = ITEMS.register("wukongs_staff", () -> new WukongsStaffItem(
             new Item.Properties().attributes(WukongsStaffItem.createAttributes())
                     .component(DataComponentsInit.SIZE.value(), new SizeComponent(1, WukongsStaffItem.MAX_SIZE))));
+
+
+    public static final DeferredHolder<Item, ApolloBowItem> APOLLO_BOW = ITEMS.register("apollo_bow", () -> new ApolloBowItem(
+            new Item.Properties()));
 
     public static final DeferredHolder<Item, SpawnEggItem> STONE_EGG_SPAWN_EGG = ITEMS.register("stone_egg_spawn_egg",
             () -> new SpawnEggItem(EntityTypeInit.STONE_EGG.get(),
