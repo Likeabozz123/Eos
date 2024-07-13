@@ -1,14 +1,20 @@
 package xyz.gamars.eos.common.objects.items.wukongsstaff;
 
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.core.Direction;
+import net.minecraft.core.Position;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.entity.projectile.ThrownTrident;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ProjectileItem;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.network.PacketDistributor;
@@ -25,12 +31,14 @@ import xyz.gamars.eos.client.KeyMappingInit;
 import xyz.gamars.eos.common.components.SizeComponent;
 import xyz.gamars.eos.common.objects.AttributeLocations;
 import xyz.gamars.eos.common.objects.DataComponentsInit;
+import xyz.gamars.eos.common.objects.EntityTypeInit;
+import xyz.gamars.eos.common.objects.entities.wukongsstaff.WukongsStaffProjectileEntity;
 import xyz.gamars.eos.network.payloads.PullOutWukongStaffPayload;
 import xyz.gamars.eos.utils.InventoryUtils;
 
 import java.util.function.Consumer;
 
-public class WukongsStaffItem extends Item implements GeoItem, ICurioItem {
+public class WukongsStaffItem extends Item implements GeoItem, ICurioItem, ProjectileItem {
 
     private final AnimatableInstanceCache animatableInstanceCache = GeckoLibUtil.createInstanceCache(this);
 
@@ -79,7 +87,6 @@ public class WukongsStaffItem extends Item implements GeoItem, ICurioItem {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
         if (!level.isClientSide()) {
-
             ItemStack item = player.getMainHandItem();
             if (!player.isCrouching()) {
                 item.update(DataComponentsInit.SIZE.value(), new SizeComponent(1, MAX_SIZE), s -> {
@@ -215,7 +222,12 @@ public class WukongsStaffItem extends Item implements GeoItem, ICurioItem {
             }
         }
 
+    }
 
-
+    @Override
+    public Projectile asProjectile(Level level, Position pos, ItemStack stack, Direction direction) {
+        WukongsStaffProjectileEntity wukongsStaffProjectile = new WukongsStaffProjectileEntity(pos.x(), pos.y(), pos.z(), level, stack.copyWithCount(1));
+        wukongsStaffProjectile.pickup = AbstractArrow.Pickup.ALLOWED;
+        return wukongsStaffProjectile;
     }
 }

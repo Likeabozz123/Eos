@@ -10,6 +10,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import xyz.gamars.eos.Eos;
 import xyz.gamars.eos.common.objects.entities.monkey.MonkeyEntity;
 import xyz.gamars.eos.common.objects.entities.stoneegg.StoneEggEntity;
+import xyz.gamars.eos.common.objects.entities.wukongsstaff.WukongsStaffProjectileEntity;
 
 public class EntityTypeInit {
 
@@ -24,6 +25,9 @@ public class EntityTypeInit {
             EntityType.Builder.<MonkeyEntity>of(MonkeyEntity::new, MobCategory.MISC)
                     .sized(0.6f, 1.5f)
     );
+
+    public static final DeferredHolder<EntityType<?>, EntityType<WukongsStaffProjectileEntity>> WUKONGS_STAFF_PROJECTILE = register("wukongs_staff",
+            EntityType.Builder.<WukongsStaffProjectileEntity>of(WukongsStaffProjectileEntity::new, MobCategory.MISC));
 
     private static <T extends Entity> DeferredHolder<EntityType<?>, EntityType<T>> register(String key, EntityType.Builder<T> builder) {
         return ENTITY_TYPES.register(key, () -> builder.build(key));

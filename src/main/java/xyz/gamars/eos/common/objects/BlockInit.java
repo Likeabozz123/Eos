@@ -9,6 +9,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import xyz.gamars.eos.Eos;
 import xyz.gamars.eos.common.objects.blocks.DevBlock;
+import xyz.gamars.eos.common.objects.blocks.testblock.TestBlock;
 
 import java.util.function.Supplier;
 
@@ -17,6 +18,8 @@ public class BlockInit {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.createBlocks(Eos.MOD_ID);
 
     public static final DeferredHolder<Block, DevBlock> DEV_BLOCK = create("dev_block", () -> new DevBlock(BlockBehaviour.Properties.of()));
+
+    public static final DeferredHolder<Block, TestBlock> TEST_BLOCK = create("test_block", () -> new TestBlock(BlockBehaviour.Properties.of()));
 
     public static final DeferredHolder<Block, Block> RAW_MARBLE = create("raw_marble", () -> new Block(BlockBehaviour.Properties.of()));
     public static final DeferredHolder<Block, Block> MARBLE_BRICKS = create("marble_bricks", () -> new Block(BlockBehaviour.Properties.of()));
