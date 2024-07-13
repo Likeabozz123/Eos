@@ -7,7 +7,8 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import xyz.gamars.eos.Eos;
 import xyz.gamars.eos.common.objects.BlockEntityTypeInit;
 import xyz.gamars.eos.common.objects.EntityTypeInit;
-import xyz.gamars.eos.common.objects.blocks.testblock.TestBlockEntityRenderer;
+import xyz.gamars.eos.common.objects.blocks.cylinder.CylinderBlockEntityRenderer;
+import xyz.gamars.eos.common.objects.blocks.test.TestBlockEntityRenderer;
 import xyz.gamars.eos.common.objects.entities.monkey.MonkeyRenderer;
 import xyz.gamars.eos.common.objects.entities.stoneegg.StoneEggRenderer;
 import xyz.gamars.eos.common.objects.entities.wukongsstaff.WukongsStaffProjectileRenderer;
@@ -22,6 +23,7 @@ public class EntityRenderersEventListener {
         event.registerEntityRenderer(EntityTypeInit.WUKONGS_STAFF_PROJECTILE.get(), WukongsStaffProjectileRenderer::new);
 
         event.registerBlockEntityRenderer(BlockEntityTypeInit.TEST_BLOCK_ENTITY.get(), TestBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(BlockEntityTypeInit.CYLINDER_BLOCK_ENTITY.get(), CylinderBlockEntityRenderer::new);
     }
 
 }
