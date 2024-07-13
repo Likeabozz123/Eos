@@ -25,7 +25,6 @@ public class TestBlockEntityRenderer implements BlockEntityRenderer<TestBlockEnt
     @Override
     public void render(TestBlockEntity blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
 
-
         int longs = 36;
         int lats = 36;
         int radius = 10;
@@ -33,6 +32,7 @@ public class TestBlockEntityRenderer implements BlockEntityRenderer<TestBlockEnt
 
         Matrix4f last = poseStack.last().pose();
         VertexConsumer vertexConsumer = bufferSource.getBuffer(RenderTypeInit.SOLID_TRIANGLES);
+        poseStack.translate(0.5f, 0, 0.5f);
         float startU = 0;
         float startV = 0;
         float endU = Mth.PI * 2;
@@ -52,13 +52,14 @@ public class TestBlockEntityRenderer implements BlockEntityRenderer<TestBlockEnt
                 Vector3f p2 = parametricSphere(u2, v1, radius);
                 Vector3f p3 = parametricSphere(u2, v2, radius);
 
-                float textureU1 = u1 / endU * radius;
-                float textureV1 = v1 / endV * radius;
-                float textureU2 = u2 / endU * radius;
-                float textureV2 = v2 / endV * radius;
+                float textureU1 = u1 / endU;
+                float textureU2 = u2 / endU;
+                float textureV1 = v1 / endV;
+                float textureV2 = v2 / endV;
                 vertexPosColorUVLight(vertexConsumer, last, p0.x(), p0.y(), p0.z(), 0, 0, 0, 1, textureU1, textureV1, light);
                 vertexPosColorUVLight(vertexConsumer, last, p2.x(), p2.y(), p2.z(), 0, 0, 0, 1,  textureU2, textureV1, light);
                 vertexPosColorUVLight(vertexConsumer, last, p1.x(), p1.y(), p1.z(), 0, 0, 0, 1,  textureU1, textureV2, light);
+
 
                 vertexPosColorUVLight(vertexConsumer, last, p3.x(), p3.y(), p3.z(), 0, 0, 0, 1,  textureU2, textureV2, light);
                 vertexPosColorUVLight(vertexConsumer, last, p1.x(), p1.y(), p1.z(), 0, 0, 0, 1,  textureU1, textureV2, light);
@@ -74,8 +75,8 @@ public class TestBlockEntityRenderer implements BlockEntityRenderer<TestBlockEnt
 
     public static void vertexPosColorUVLight(VertexConsumer vertexConsumer, Matrix4f last, float x, float y, float z, float r, float g, float b, float a, float u, float v, int light) {
         vertexConsumer.addVertex(last, x, y, z)
-                .setColor(r, g, b, a)
                 .setUv(u, v)
+                .setColor(r, g, b, a)
                 .setLight(light);
     }
 
@@ -83,4 +84,6 @@ public class TestBlockEntityRenderer implements BlockEntityRenderer<TestBlockEnt
     public AABB getRenderBoundingBox(TestBlockEntity blockEntity) {
         return AABB.INFINITE;
     }
+
+
 }
