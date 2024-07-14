@@ -5,10 +5,14 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
+import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.minecraft.world.phys.AABB;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
+import xyz.gamars.eos.Eos;
 import xyz.gamars.eos.common.objects.RenderTypeInit;
 
 public class TestBlockEntityRenderer implements BlockEntityRenderer<TestBlockEntity> {
@@ -21,10 +25,13 @@ public class TestBlockEntityRenderer implements BlockEntityRenderer<TestBlockEnt
     @Override
     public void render(TestBlockEntity blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
 
+
         int longs = 36;
         int lats = 36;
-        int radius = 10;
+        // float radius = blockEntity.getUpdateTag().getFloat("Radius");
+        float radius = blockEntity.getRadius();
         int light = 3;
+
 
         Matrix4f last = poseStack.last().pose();
         VertexConsumer vertexConsumer = bufferSource.getBuffer(RenderTypeInit.SOLID_TRIANGLES);

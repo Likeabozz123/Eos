@@ -7,8 +7,10 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import xyz.gamars.eos.Eos;
 import xyz.gamars.eos.common.objects.BlockEntityTypeInit;
 import xyz.gamars.eos.common.objects.EntityTypeInit;
+import xyz.gamars.eos.common.objects.blocks.cone.ConeBlockEntityRenderer;
 import xyz.gamars.eos.common.objects.blocks.cylinder.CylinderBlockEntityRenderer;
 import xyz.gamars.eos.common.objects.blocks.test.TestBlockEntityRenderer;
+import xyz.gamars.eos.common.objects.blocks.torus.TorusBlockEntityRenderer;
 import xyz.gamars.eos.common.objects.entities.monkey.MonkeyRenderer;
 import xyz.gamars.eos.common.objects.entities.stoneegg.StoneEggRenderer;
 import xyz.gamars.eos.common.objects.entities.wukongsstaff.WukongsStaffProjectileRenderer;
@@ -24,6 +26,8 @@ public class EntityRenderersEventListener {
 
         event.registerBlockEntityRenderer(BlockEntityTypeInit.TEST_BLOCK_ENTITY.get(), TestBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(BlockEntityTypeInit.CYLINDER_BLOCK_ENTITY.get(), CylinderBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(BlockEntityTypeInit.CONE_BLOCK_ENTITY.get(), ConeBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(BlockEntityTypeInit.TORUS_BLOCK_ENTITY.get(), TorusBlockEntityRenderer::new);
     }
 
 }
