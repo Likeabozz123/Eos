@@ -1,4 +1,4 @@
-package xyz.gamars.eos.common.objects.blocks.cone;
+package xyz.gamars.eos.common.objects.blocks.sphere;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
@@ -11,10 +11,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 import xyz.gamars.eos.common.objects.BlockEntityTypeInit;
 
-public class ConeBlock extends BaseEntityBlock {
+public class SphereBlock extends BaseEntityBlock {
 
-
-    public ConeBlock(Properties properties) {
+    public SphereBlock(Properties properties) {
         super(properties);
     }
 
@@ -26,12 +25,12 @@ public class ConeBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new ConeBlockEntity(pos, state);
+        return new SphereBlockEntity(pos, state);
     }
 
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntityType) {
-        return createTickerHelper(blockEntityType, BlockEntityTypeInit.CONE_BLOCK_ENTITY.get(), level.isClientSide ? ConeBlockEntity::clientTick : ConeBlockEntity::serverTick);
+        return createTickerHelper(blockEntityType, BlockEntityTypeInit.SPHERE_BLOCK_ENTITY.get(), level.isClientSide ? SphereBlockEntity::clientTick : SphereBlockEntity::serverTick);
     }
 }

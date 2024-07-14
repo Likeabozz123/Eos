@@ -37,9 +37,9 @@ public class TorusBlockEntityRenderer implements BlockEntityRenderer<TorusBlockE
             for (int j = 0; j < sides; ++j) {
 
                 float theta1 = i * thetaStep;
-                float theta2 = i + 1 == sides ? Mth.PI * 2 : (i + 1) * thetaStep + startTheta;
+                float theta2 = i + 1 == sides ? Mth.PI * 2 + startTheta : (i + 1) * thetaStep + startTheta;
                 float phi1 = j * thetaStep;
-                float phi2 = j + 1 == sides ? Mth.PI * 2 : (j + 1) * phiStep + startPhi;
+                float phi2 = j + 1 == sides ? Mth.PI * 2 + startPhi : (j + 1) * phiStep + startPhi;
 
                 Vector3f p0 = parametricTorus(majorRadius, minorRadius, theta1, phi1);
                 Vector3f p1 = parametricTorus(majorRadius, minorRadius, theta2, phi1);

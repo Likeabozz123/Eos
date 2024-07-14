@@ -21,7 +21,7 @@ public class CylinderBlockEntityRenderer implements BlockEntityRenderer<Cylinder
     public void render(CylinderBlockEntity blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
 
         int sides = 36;
-        int height = 12;
+        int height = 36 ;
         int radius = 5;
 
         float startTheta = 0;

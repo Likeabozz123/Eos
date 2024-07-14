@@ -42,6 +42,20 @@ public class RenderTypeInit {
                     .createCompositeState(false)
     );
 
+    public static final RenderType LINES_TRIANGLES = RenderType.create(
+            "lines_triangles",
+            DefaultVertexFormat.POSITION,
+            VertexFormat.Mode.TRIANGLES,
+            1536,
+            false,
+            false,
+            RenderType.CompositeState.builder()
+                    .setShaderState(RenderType.RENDERTYPE_OUTLINE_SHADER)
+                    .setCullState(RenderStateShard.NO_CULL)
+                    .setOutputState(RenderType.OUTLINE_TARGET)
+                    .createCompositeState(false)
+    );
+
     public static final RenderType TEXTURE_TRIANGLES = RenderType.create(
             "texture_triangles",
             DefaultVertexFormat.POSITION_TEX,

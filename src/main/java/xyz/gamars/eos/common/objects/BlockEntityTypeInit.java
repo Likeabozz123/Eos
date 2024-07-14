@@ -8,6 +8,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import xyz.gamars.eos.Eos;
 import xyz.gamars.eos.common.objects.blocks.cone.ConeBlockEntity;
 import xyz.gamars.eos.common.objects.blocks.cylinder.CylinderBlockEntity;
+import xyz.gamars.eos.common.objects.blocks.sphere.SphereBlockEntity;
 import xyz.gamars.eos.common.objects.blocks.test.TestBlockEntity;
 import xyz.gamars.eos.common.objects.blocks.torus.TorusBlockEntity;
 
@@ -17,6 +18,9 @@ public class BlockEntityTypeInit {
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TestBlockEntity>> TEST_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register("test_block_entity",
             () -> BlockEntityType.Builder.of(TestBlockEntity::new, BlockInit.TEST_BLOCK.get()).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SphereBlockEntity>> SPHERE_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register("sphere_block_entity",
+            () -> BlockEntityType.Builder.of(SphereBlockEntity::new, BlockInit.SPHERE_BLOCK.get()).build(null));
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CylinderBlockEntity>> CYLINDER_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register("cylinder_block_entity",
             () -> BlockEntityType.Builder.of(CylinderBlockEntity::new, BlockInit.CYLINDER_BLOCK.get()).build(null));

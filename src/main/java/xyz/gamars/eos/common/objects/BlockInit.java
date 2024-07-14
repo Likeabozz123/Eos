@@ -11,6 +11,7 @@ import xyz.gamars.eos.Eos;
 import xyz.gamars.eos.common.objects.blocks.DevBlock;
 import xyz.gamars.eos.common.objects.blocks.cone.ConeBlock;
 import xyz.gamars.eos.common.objects.blocks.cylinder.CylinderBlock;
+import xyz.gamars.eos.common.objects.blocks.sphere.SphereBlock;
 import xyz.gamars.eos.common.objects.blocks.test.TestBlock;
 import xyz.gamars.eos.common.objects.blocks.torus.TorusBlock;
 
@@ -23,6 +24,7 @@ public class BlockInit {
     public static final DeferredHolder<Block, DevBlock> DEV_BLOCK = create("dev_block", () -> new DevBlock(BlockBehaviour.Properties.of()));
 
     public static final DeferredHolder<Block, TestBlock> TEST_BLOCK = create("test_block", () -> new TestBlock(BlockBehaviour.Properties.of()));
+    public static final DeferredHolder<Block, SphereBlock> SPHERE_BLOCK = create("sphere_block", () -> new SphereBlock(BlockBehaviour.Properties.of()));
     public static final DeferredHolder<Block, CylinderBlock> CYLINDER_BLOCK = create("cylinder_block", () -> new CylinderBlock(BlockBehaviour.Properties.of()));
     public static final DeferredHolder<Block, ConeBlock> CONE_BLOCK = create("cone_block", () -> new ConeBlock(BlockBehaviour.Properties.of()));
     public static final DeferredHolder<Block, TorusBlock> TORUS_BLOCK = create("torus_block", () -> new TorusBlock(BlockBehaviour.Properties.of()));

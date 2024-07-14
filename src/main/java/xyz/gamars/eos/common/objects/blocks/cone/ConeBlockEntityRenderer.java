@@ -26,7 +26,7 @@ public class ConeBlockEntityRenderer implements BlockEntityRenderer<ConeBlockEnt
         int height = 6;
         int radius = 6;
 
-        float startTheta = 0;
+        float startTheta = blockEntity.getRotation();
         float thetaStep = Mth.PI * 2 / sides;
 
         Matrix4f last = poseStack.last().pose();
@@ -35,7 +35,7 @@ public class ConeBlockEntityRenderer implements BlockEntityRenderer<ConeBlockEnt
 
         for (int i = 0; i < sides; ++i) {
             float theta1 = i * thetaStep + startTheta;
-            float theta2 = i + 1 == sides ? Mth.PI * 2 : (i + 1) * thetaStep + startTheta;
+            float theta2 = i + 1 == sides ? Mth.PI * 2 + startTheta : (i + 1) * thetaStep + startTheta;
 
             // sides
             Vector3f pTopCenter = parametricCone(0, theta1, height);
