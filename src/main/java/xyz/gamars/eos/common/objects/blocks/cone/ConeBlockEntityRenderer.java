@@ -9,10 +9,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.phys.AABB;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
-import xyz.gamars.eos.common.objects.RenderTypeInit;
-import xyz.gamars.eos.common.objects.blocks.cylinder.CylinderBlockEntity;
-
-import static xyz.gamars.eos.common.objects.blocks.cylinder.CylinderBlockEntityRenderer.parametricCylinder;
+import xyz.gamars.eos.client.render.RenderTypeInit;
 
 public class ConeBlockEntityRenderer implements BlockEntityRenderer<ConeBlockEntity> {
 

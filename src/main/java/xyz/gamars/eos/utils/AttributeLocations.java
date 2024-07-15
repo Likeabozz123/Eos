@@ -1,4 +1,4 @@
-package xyz.gamars.eos.common.objects;
+package xyz.gamars.eos.utils;
 
 import net.minecraft.resources.ResourceLocation;
 import xyz.gamars.eos.Eos;

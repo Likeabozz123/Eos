@@ -4,7 +4,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.common.data.ParticleDescriptionProvider;
-import xyz.gamars.eos.common.objects.ParticleTypeInit;
+import xyz.gamars.eos.client.fx.ParticleTypeInit;
 
 import static xyz.gamars.eos.Eos.MOD_ID;
 

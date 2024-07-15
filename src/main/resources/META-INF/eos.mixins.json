@@ -4,8 +4,8 @@
   "package": "xyz.gamars.eos.mixins",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "MixinLivingEntity",
-    "MixinEnchantmentHelper"
+    "MixinEnchantmentHelper",
+    "MixinLivingEntity"
   ],
   "injectors": {
     "defaultRequire": 1

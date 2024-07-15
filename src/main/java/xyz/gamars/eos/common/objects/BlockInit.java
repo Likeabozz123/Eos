@@ -8,7 +8,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import xyz.gamars.eos.Eos;
-import xyz.gamars.eos.common.objects.blocks.*;
+import xyz.gamars.eos.common.objects.blocks.DevBlock;
 import xyz.gamars.eos.common.objects.blocks.cone.ConeBlock;
 import xyz.gamars.eos.common.objects.blocks.cylinder.CylinderBlock;
 import xyz.gamars.eos.common.objects.blocks.sphere.SphereBlock;

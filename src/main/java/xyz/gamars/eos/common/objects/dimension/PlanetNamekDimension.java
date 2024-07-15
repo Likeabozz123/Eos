@@ -10,7 +10,8 @@ import net.minecraft.world.level.biome.FixedBiomeSource;
 import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.dimension.LevelStem;
-import net.minecraft.world.level.levelgen.*;
+import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
+import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
 import xyz.gamars.eos.common.objects.BiomeInit;
 import xyz.gamars.eos.common.objects.DimensionInit;
 

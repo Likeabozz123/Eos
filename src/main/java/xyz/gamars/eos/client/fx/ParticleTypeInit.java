@@ -1,4 +1,4 @@
-package xyz.gamars.eos.common.objects;
+package xyz.gamars.eos.client.fx;
 
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;

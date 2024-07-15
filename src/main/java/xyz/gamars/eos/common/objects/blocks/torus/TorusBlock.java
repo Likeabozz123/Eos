@@ -10,7 +10,6 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 import xyz.gamars.eos.common.objects.BlockEntityTypeInit;
-import xyz.gamars.eos.common.objects.blocks.cone.ConeBlockEntity;
 
 public class TorusBlock extends BaseEntityBlock {
 

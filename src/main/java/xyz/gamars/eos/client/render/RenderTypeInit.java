@@ -1,4 +1,4 @@
-package xyz.gamars.eos.common.objects;
+package xyz.gamars.eos.client.render;
 
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormat;
@@ -39,20 +39,6 @@ public class RenderTypeInit {
             RenderType.CompositeState.builder()
                     .setShaderState(RenderType.RENDERTYPE_SOLID_SHADER)
                     .setCullState(RenderStateShard.NO_CULL)
-                    .createCompositeState(false)
-    );
-
-    public static final RenderType LINES_TRIANGLES = RenderType.create(
-            "lines_triangles",
-            DefaultVertexFormat.POSITION,
-            VertexFormat.Mode.TRIANGLES,
-            1536,
-            false,
-            false,
-            RenderType.CompositeState.builder()
-                    .setShaderState(RenderType.RENDERTYPE_OUTLINE_SHADER)
-                    .setCullState(RenderStateShard.NO_CULL)
-                    .setOutputState(RenderType.OUTLINE_TARGET)
                     .createCompositeState(false)
     );
 
