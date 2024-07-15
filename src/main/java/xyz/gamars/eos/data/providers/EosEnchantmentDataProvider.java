@@ -35,7 +35,6 @@ public class EosEnchantmentDataProvider {
 
 
     public static void enchantments(BootstrapContext<Enchantment> bootstrap) {
-
         HolderGetter<DamageType> damageTypeRegistry = bootstrap.lookup(Registries.DAMAGE_TYPE);
         HolderGetter<Enchantment> enchantmentRegistry = bootstrap.lookup(Registries.ENCHANTMENT);
         HolderGetter<Item> itemRegistry = bootstrap.lookup(Registries.ITEM);

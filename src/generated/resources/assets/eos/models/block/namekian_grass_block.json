@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "eos:block/namekian_rock",
+    "side": "eos:block/namekian_grass_side",
+    "top": "eos:block/namekian_grass_top"
+  }
+}

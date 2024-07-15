@@ -1,3 +1,6 @@
-// 1.21	2024-07-03T23:02:36.1261949	Registries
+// 1.21	2024-07-14T20:09:22.2511321	Registries
+a78ef68470d0d7823585b3d86d54a856c3178964 data/eos/dimension/planet_namek.json
+e241e971aacde6f4d0236c622c99d6c9caeb981e data/eos/dimension_type/planet_namek_dimension_type.json
 be777011ae84c030c2a3d6bc630b7458b9f6dc8e data/eos/enchantment/bane_of_pigs.json
-3cdc7a9369973790a0e96a060a5c6ae5bba41da1 data/eos/enchantment/poseidon_luck.json
+ceedc63c7e1d9527984c8e9864c9b9993da7c899 data/eos/enchantment/poseidon_luck.json
+220fad98e9ab54fc6a5a9dd1e1b1945183cc5748 data/eos/worldgen/biome/namek_biome.json

@@ -39,7 +39,11 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(
                 packOutput,
                 provider,
-                new RegistrySetBuilder().add(Registries.ENCHANTMENT, EosEnchantmentDataProvider::enchantments),
+                new RegistrySetBuilder()
+                        .add(Registries.ENCHANTMENT, EosEnchantmentDataProvider::enchantments)
+                        .add(Registries.BIOME, EosBiomeDataProvider::biomes)
+                        .add(Registries.DIMENSION_TYPE, EosDimensionDataProvider::dimensionType)
+                        .add(Registries.LEVEL_STEM, EosDimensionDataProvider::levelStem),
                 Set.of(Eos.MOD_ID)
 
         ));

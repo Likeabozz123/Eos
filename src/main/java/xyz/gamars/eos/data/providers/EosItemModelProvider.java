@@ -36,6 +36,9 @@ public class EosItemModelProvider extends ItemModelProvider {
         spawnEggItem(ItemInit.MONKEY_SPAWN_EGG.get());
 
         blockItem(BlockInit.DEV_BLOCK.get());
+        blockItem(BlockInit.NAMEKIAN_GRASS_BLOCK.get());
+        blockItem(BlockInit.NAMEKIAN_ROCK.get());
+        blockItem(BlockInit.NAMEKIAN_LOG.get());
 
         blockItem(BlockInit.RAW_MARBLE.get());
         blockItem(BlockInit.MARBLE_BRICKS.get());
@@ -49,8 +52,24 @@ public class EosItemModelProvider extends ItemModelProvider {
         wallBlockItem(BlockInit.MARBLE_WALL.get(), BlockInit.MARBLE_BRICKS.get());
     }
 
+    public ResourceLocation key(Item item) {
+        return BuiltInRegistries.ITEM.getKey(item);
+    }
+
+    public String name(Item item) {
+        return key(item).getPath();
+    }
+
+    public ResourceLocation key(Block block) {
+        return BuiltInRegistries.BLOCK.getKey(block);
+    }
+
+    public String name(Block block) {
+        return key(block).getPath();
+    }
+
     public ItemModelBuilder handheldItem(Item item) {
-        ResourceLocation resourceLocation = BuiltInRegistries.ITEM.getKey(item);
+        ResourceLocation resourceLocation = key(item);
         return getBuilder(resourceLocation.toString())
                 .parent(new ModelFile.UncheckedModelFile("item/handheld"))
                 .texture("layer0", ResourceLocation.fromNamespaceAndPath(resourceLocation.getNamespace(), "item/" + resourceLocation.getPath()));
@@ -58,27 +77,27 @@ public class EosItemModelProvider extends ItemModelProvider {
 
 
     public ItemModelBuilder blockItem(Block block) {
-        ResourceLocation resourceLocation = BuiltInRegistries.BLOCK.getKey(block);
+        ResourceLocation resourceLocation = key(block);
         return getBuilder(resourceLocation.toString())
                 .parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(resourceLocation.getNamespace(), "block/" + resourceLocation.getPath())));
     }
 
     public ItemModelBuilder wallBlockItem(Block block, Block parentBlock) {
-        ResourceLocation resourceLocation = BuiltInRegistries.BLOCK.getKey(block);
-        ResourceLocation parentBlockResourceLocation = BuiltInRegistries.BLOCK.getKey(parentBlock);
+        ResourceLocation resourceLocation = key(block);
+        ResourceLocation parentBlockResourceLocation = key(parentBlock);
         return getBuilder(resourceLocation.toString())
                 .parent(new ModelFile.UncheckedModelFile("block/wall_inventory"))
                 .texture("wall", ResourceLocation.fromNamespaceAndPath(resourceLocation.getNamespace(), "block/" + parentBlockResourceLocation.getPath()));
     }
 
     public ItemModelBuilder spawnEggItem(Item item) {
-        ResourceLocation resourceLocation = BuiltInRegistries.ITEM.getKey(item);
+        ResourceLocation resourceLocation = key(item);
         return getBuilder(resourceLocation.toString())
                 .parent(new ModelFile.UncheckedModelFile("minecraft:item/template_spawn_egg"));
     }
 
     public ItemModelBuilder wukongStaff(int maxSize) {
-        ResourceLocation wukongStaffModLoc = BuiltInRegistries.ITEM.getKey(ItemInit.WUKONGS_STAFF.get());
+        ResourceLocation wukongStaffModLoc = key(ItemInit.WUKONGS_STAFF.get());
         ItemModelBuilder wukongStaffItemModel = getBuilder(wukongStaffModLoc.toString())
                 .parent(new ModelFile.UncheckedModelFile("builtin/entity"));
 

@@ -32,6 +32,9 @@ public class EosLanguageProvider extends LanguageProvider {
         add(ItemInit.MONKEY_SPAWN_EGG.get(), "Monkey Spawn Egg");
 
         add(BlockInit.DEV_BLOCK.get(), "Dev Block");
+        add(BlockInit.NAMEKIAN_GRASS_BLOCK.get(), "Namekian Grass Block");
+        add(BlockInit.NAMEKIAN_ROCK.get(), "Namekian Rock");
+        add(BlockInit.NAMEKIAN_LOG.get(), "Namekian Log");
 
         add(BlockInit.RAW_MARBLE.get(), "Raw Marble");
         add(BlockInit.MARBLE_BRICKS.get(), "Marble Bricks");
