@@ -1,5 +1,7 @@
 package xyz.gamars.eos.common.objects.items;
 
+import net.minecraft.client.Camera;
+import net.minecraft.client.Minecraft;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
@@ -26,6 +28,7 @@ public class DevItem extends Item {
             wukongsStaffProjectile.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.5F, 0);
             level.addFreshEntity(wukongsStaffProjectile);
         }
+
 
         return super.use(level, player, usedHand);
     }

@@ -24,5 +24,6 @@ public class EosBlockTagsProvider extends BlockTagsProvider {
                 .add(BlockInit.MARBLE_WALL.get());
 
 
+
     }
 }

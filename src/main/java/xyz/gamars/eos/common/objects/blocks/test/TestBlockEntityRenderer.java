@@ -20,15 +20,15 @@ public class TestBlockEntityRenderer implements BlockEntityRenderer<TestBlockEnt
     public void render(TestBlockEntity blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
 
         Matrix4f last = poseStack.last().pose();
-        VertexConsumer vertexConsumer = bufferSource.getBuffer(RenderTypeInit.SOLID_TRIANGLES);
+        VertexConsumer vertexConsumer = bufferSource.getBuffer(RenderTypeInit.TEST_RENDER);
         poseStack.translate(0.5f, 0, 0.5f);
 
 
         // flat square
-        Vector3f p0 = new Vector3f(0.5f, 0.5f, 0.5f);
-        Vector3f p1 = new Vector3f(-0.5f, 0.5f, 0.5f);
-        Vector3f p2 = new Vector3f(0.5f, 0.5f, -0.5f);
-        Vector3f p3 = new Vector3f(-0.5f, 0.5f, -0.5f);
+        Vector3f p0 = new Vector3f(0.5f,  1.0f, 0.5f);
+        Vector3f p1 = new Vector3f(-0.5f, 1.0f, 0.5f);
+        Vector3f p2 = new Vector3f(0.5f,  1.0f, -0.5f);
+        Vector3f p3 = new Vector3f(-0.5f, 1.0f, -0.5f);
 
         vertexPosColor(vertexConsumer, last, p0, 1, 1, 1, 1);
         vertexPosColor(vertexConsumer, last, p1, 1, 1, 1, 1);
@@ -40,6 +40,7 @@ public class TestBlockEntityRenderer implements BlockEntityRenderer<TestBlockEnt
 
         // upright square
 
+        /*
         Vector3f s0 = new Vector3f(0.5f, 1f, 0);
         Vector3f s1 = new Vector3f(-0.5f, 1f, 0);
         Vector3f s2 = new Vector3f(0.5f, 0f, 0);
@@ -52,6 +53,7 @@ public class TestBlockEntityRenderer implements BlockEntityRenderer<TestBlockEnt
         vertexPosColor(vertexConsumer, last, s0, 1, 1, 1, 1);
         vertexPosColor(vertexConsumer, last, s2, 1, 1, 1, 1);
         vertexPosColor(vertexConsumer, last, s3, 1, 1, 1, 1);
+        */
 
 
 

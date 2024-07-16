@@ -42,6 +42,32 @@ public class RenderTypeInit {
                     .createCompositeState(false)
     );
 
+    public static final RenderType TEST_RENDER = RenderType.create(
+            "test_render",
+            DefaultVertexFormat.POSITION,
+            VertexFormat.Mode.TRIANGLES,
+            1536,
+            false,
+            false,
+            RenderType.CompositeState.builder()
+                    .setShaderState(ShaderInit.RENDERTYPE_TEST_SHADER)
+                    .setCullState(RenderStateShard.NO_CULL)
+                    .createCompositeState(false)
+    );
+
+    public static final RenderType BRIGHT_SOLID = RenderType.create(
+            "bright_solid",
+            DefaultVertexFormat.POSITION,
+            VertexFormat.Mode.TRIANGLES,
+            1536,
+            false,
+            false,
+            RenderType.CompositeState.builder()
+                    .setShaderState(ShaderInit.RENDERTYPE_BRIGHT_SOLID)
+                    .setCullState(RenderStateShard.NO_CULL)
+                    .createCompositeState(false)
+    );
+
     public static final RenderType TEXTURE_TRIANGLES = RenderType.create(
             "texture_triangles",
             DefaultVertexFormat.POSITION_TEX,
