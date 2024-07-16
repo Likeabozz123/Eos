@@ -1,6 +1,5 @@
 package xyz.gamars.eos.common.objects.blocks.cone;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -19,8 +18,7 @@ public class ConeBlockEntity extends BlockEntity {
 
     private float rotation = 0;
     private float duration = 5;
-    private float elapsed = 0;
-    private float serverTickCount = 0;
+    private float serverElapsed = 0;
 
     public ConeBlockEntity(BlockPos pos, BlockState blockState) {
         super(BlockEntityTypeInit.CONE_BLOCK_ENTITY.get(), pos, blockState);
@@ -34,7 +32,6 @@ public class ConeBlockEntity extends BlockEntity {
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, ConeBlockEntity blockEntity) {
 
-        blockEntity.incrementTick();
         blockEntity.rotate();
         level.sendBlockUpdated(pos, state, state, Block.UPDATE_CLIENTS);
 
@@ -47,14 +44,6 @@ public class ConeBlockEntity extends BlockEntity {
         this.rotation = tag.getFloat("Rotation");
 
 
-    }
-
-    public void incrementTick() {
-        serverTickCount++;
-    }
-
-    public float getServerTickCount() {
-        return serverTickCount;
     }
 
     @Override
@@ -88,9 +77,9 @@ public class ConeBlockEntity extends BlockEntity {
     }
 
     public void rotate() {
-        float time = elapsed / duration;
+        float time = serverElapsed / duration;
         rotation = Mth.PI * 2 * Mth.sin(time / 8);
-        elapsed += Minecraft.getInstance().getTimer().getGameTimeDeltaPartialTick(true);
+        serverElapsed++;
     }
 
 }

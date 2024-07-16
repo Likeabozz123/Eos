@@ -27,16 +27,14 @@ public class TestPortalBlock extends Block implements Portal {
 
             ServerLevel portalDimension = minecraftServer.getLevel(resourceKey);
             if (portalDimension != null && !entity.isPassenger()) {
-                if (resourceKey == DimensionInit.PLANET_NAMEK.getLevel()) {
-                    entity.changeDimension(new DimensionTransition(
-                            portalDimension,
-                            new Vec3(0,100,0),
-                            entity.getDeltaMovement(),
-                            entity.getYRot(),
-                            entity.getXRot(),
-                            DimensionTransition.PLAY_PORTAL_SOUND
-                    ));
-                }
+                entity.changeDimension(new DimensionTransition(
+                        portalDimension,
+                        new Vec3(0,100,0),
+                        entity.getDeltaMovement(),
+                        entity.getYRot(),
+                        entity.getXRot(),
+                        DimensionTransition.PLAY_PORTAL_SOUND
+                ));
             }
         }
 

@@ -21,7 +21,6 @@ public class SphereBlockEntityRenderer implements BlockEntityRenderer<SphereBloc
     @Override
     public void render(SphereBlockEntity blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
 
-
         int longs = 36;
         int lats = 36;
         float radius = blockEntity.getUpdateTag().getFloat("Radius");

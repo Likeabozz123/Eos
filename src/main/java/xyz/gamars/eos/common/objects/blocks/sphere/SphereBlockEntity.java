@@ -1,6 +1,5 @@
 package xyz.gamars.eos.common.objects.blocks.sphere;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -19,8 +18,7 @@ public class SphereBlockEntity extends BlockEntity {
 
     private float radius = 1;
     private float duration = 5;
-    private float elapsed = 0;
-    private float serverTickCount = 0;
+    private float serverElapsed = 0;
 
     public SphereBlockEntity(BlockPos pos, BlockState blockState) {
         super(BlockEntityTypeInit.SPHERE_BLOCK_ENTITY.value(), pos, blockState);
@@ -49,7 +47,6 @@ public class SphereBlockEntity extends BlockEntity {
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, SphereBlockEntity blockEntity) {
 
-        blockEntity.incrementTick();
         blockEntity.growRadius();
         level.sendBlockUpdated(pos, state, state, Block.UPDATE_CLIENTS);
 
@@ -59,19 +56,11 @@ public class SphereBlockEntity extends BlockEntity {
         return radius;
     }
 
-    public void incrementTick() {
-        serverTickCount++;
-    }
-
-    public float getServerTickCount() {
-        return serverTickCount;
-    }
-
     public void growRadius() {
 
-        float time = elapsed / duration;
+        float time = serverElapsed / duration;
         radius = Mth.abs(9 * Mth.sin(time / 4)) + 1;
-        elapsed += Minecraft.getInstance().getTimer().getGameTimeDeltaPartialTick(true);
+        serverElapsed++;
 
     }
 
