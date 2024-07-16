@@ -23,7 +23,8 @@ public class ConeBlockEntityRenderer implements BlockEntityRenderer<ConeBlockEnt
         int height = 6;
         int radius = 6;
 
-        float startTheta = blockEntity.getRotation();
+        // float startTheta = blockEntity.getRotation();
+        float startTheta = blockEntity.getUpdateTag().getFloat("Rotation");
         float thetaStep = Mth.PI * 2 / sides;
 
         Matrix4f last = poseStack.last().pose();

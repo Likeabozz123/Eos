@@ -24,8 +24,8 @@ public class SphereBlockEntityRenderer implements BlockEntityRenderer<SphereBloc
 
         int longs = 36;
         int lats = 36;
-        // float radius = blockEntity.getUpdateTag().getFloat("Radius");
-        float radius = blockEntity.getRadius();
+        float radius = blockEntity.getUpdateTag().getFloat("Radius");
+        // float radius = blockEntity.getRadius();
         int light = 3;
 
 

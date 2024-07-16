@@ -9,6 +9,7 @@ import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
@@ -19,6 +20,7 @@ public class SphereBlockEntity extends BlockEntity {
     private float radius = 1;
     private float duration = 5;
     private float elapsed = 0;
+    private float serverTickCount = 0;
 
     public SphereBlockEntity(BlockPos pos, BlockState blockState) {
         super(BlockEntityTypeInit.SPHERE_BLOCK_ENTITY.value(), pos, blockState);
@@ -41,14 +43,15 @@ public class SphereBlockEntity extends BlockEntity {
 
     public static void clientTick(Level level, BlockPos pos, BlockState state, SphereBlockEntity blockEntity) {
 
-        blockEntity.growRadius();
+
 
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, SphereBlockEntity blockEntity) {
 
-
-        // level.sendBlockUpdated(pos, state, state, Block.UPDATE_CLIENTS);
+        blockEntity.incrementTick();
+        blockEntity.growRadius();
+        level.sendBlockUpdated(pos, state, state, Block.UPDATE_CLIENTS);
 
     }
 
@@ -56,10 +59,18 @@ public class SphereBlockEntity extends BlockEntity {
         return radius;
     }
 
+    public void incrementTick() {
+        serverTickCount++;
+    }
+
+    public float getServerTickCount() {
+        return serverTickCount;
+    }
+
     public void growRadius() {
 
         float time = elapsed / duration;
-        radius = Mth.abs(9 * Mth.sin(time)) + 1;
+        radius = Mth.abs(9 * Mth.sin(time / 4)) + 1;
         elapsed += Minecraft.getInstance().getTimer().getGameTimeDeltaPartialTick(true);
 
     }
