@@ -28,27 +28,34 @@ public class DataGenerators {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();
 
+
         generator.addProvider(event.includeClient(), new EosLanguageProvider(packOutput));
         generator.addProvider(event.includeClient(), new EosItemModelProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeClient(), new EosBlockStateProvider(packOutput, existingFileHelper));
-        generator.addProvider(event.includeServer(), new EosEntityTypeTagProvider(packOutput, provider, existingFileHelper));
         generator.addProvider(event.includeClient(), new EosParticleDescriptionProvider(packOutput, existingFileHelper));
-        EosBlockTagsProvider eosBlockTagsProvider = new EosBlockTagsProvider(packOutput, provider, existingFileHelper);
-        generator.addProvider(event.includeServer(), eosBlockTagsProvider);
-        generator.addProvider(event.includeServer(), new EosItemTagProvider(packOutput, provider, eosBlockTagsProvider.contentsGetter(), existingFileHelper));
-        generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(
+
+        CompletableFuture<HolderLookup.Provider> datapackProvider = generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(
                 packOutput,
                 provider,
                 new RegistrySetBuilder()
                         .add(Registries.ENCHANTMENT, EosEnchantmentDataProvider::enchantments)
                         .add(Registries.BIOME, EosBiomeDataProvider::biomes)
                         .add(Registries.DIMENSION_TYPE, EosDimensionDataProvider::dimensionType)
-                        .add(Registries.LEVEL_STEM, EosDimensionDataProvider::levelStem),
+                        .add(Registries.LEVEL_STEM, EosDimensionDataProvider::levelStem)
+                        .add(Registries.DAMAGE_TYPE,EosDamageTypeDataProvider::damageType),
                 Set.of(Eos.MOD_ID)
-
-        ));
-
+        )).getRegistryProvider();
         generator.addProvider(event.includeServer(), new EosCuriosDataProvider(packOutput, existingFileHelper, provider));
+
+        // tag providers
+        generator.addProvider(event.includeServer(), new EosEntityTypeTagProvider(packOutput, provider, existingFileHelper));
+        EosBlockTagsProvider eosBlockTagsProvider = new EosBlockTagsProvider(packOutput, provider, existingFileHelper);
+        generator.addProvider(event.includeServer(), eosBlockTagsProvider);
+        generator.addProvider(event.includeServer(), new EosItemTagProvider(packOutput, provider, eosBlockTagsProvider.contentsGetter(), existingFileHelper));
+        generator.addProvider(event.includeServer(), new EosDamageTypeTagsProvider(packOutput, datapackProvider, existingFileHelper));
+
+
+
 
     }
 

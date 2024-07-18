@@ -11,8 +11,8 @@ import xyz.gamars.eos.utils.InventoryUtils;
 
 import java.util.Random;
 
-public class TyrfingrSword extends SwordItem {
-    public TyrfingrSword(Tier pTier, Properties pProperties) {
+public class TyrfingrSwordItem extends SwordItem {
+    public TyrfingrSwordItem(Tier pTier, Properties pProperties) {
         super(pTier, pProperties);
     }
 

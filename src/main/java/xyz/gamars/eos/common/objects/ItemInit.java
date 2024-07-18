@@ -12,8 +12,9 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import xyz.gamars.eos.Eos;
 import xyz.gamars.eos.common.components.SizeComponent;
 import xyz.gamars.eos.common.objects.items.DevItem;
+import xyz.gamars.eos.common.objects.items.GodSlayerItem;
 import xyz.gamars.eos.common.objects.items.PlungerItem;
-import xyz.gamars.eos.common.objects.items.TyrfingrSword;
+import xyz.gamars.eos.common.objects.items.TyrfingrSwordItem;
 import xyz.gamars.eos.common.objects.items.apollo.ApolloBowItem;
 import xyz.gamars.eos.common.objects.items.coolassstick.CoolAssStickItem;
 import xyz.gamars.eos.common.objects.items.poseidon.PoseidonArmorItem;
@@ -46,12 +47,14 @@ public class ItemInit {
     public static final DeferredHolder<Item, PoseidonChargeItem> POSEIDON_CHARGE = ITEMS.register("poseidon_charge",
             () -> new PoseidonChargeItem(new Item.Properties()));
 
-    public static final DeferredHolder<Item, TyrfingrSword> TYRFINGER_SWORD = ITEMS.register("tyrfingr_sword",
-            () -> new TyrfingrSword(Tiers.NETHERITE, new Item.Properties().attributes(TyrfingrSword.createAttributes(Tiers.DIAMOND, 5, -2f))));
+    public static final DeferredHolder<Item, TyrfingrSwordItem> TYRFINGER_SWORD = ITEMS.register("tyrfingr_sword",
+            () -> new TyrfingrSwordItem(Tiers.NETHERITE, new Item.Properties().attributes(TyrfingrSwordItem.createAttributes(Tiers.DIAMOND, 5, -2f))));
 
     public static final DeferredHolder<Item, WukongsStaffItem> WUKONGS_STAFF = ITEMS.register("wukongs_staff", () -> new WukongsStaffItem(
             new Item.Properties().attributes(WukongsStaffItem.createAttributes())
                     .component(DataComponentsInit.SIZE.value(), new SizeComponent(1, WukongsStaffItem.MAX_SIZE))));
+
+    public static final DeferredHolder<Item, GodSlayerItem> GOD_SLAYER = ITEMS.register("god_slayer", () -> new GodSlayerItem(new Item.Properties()));
 
 
     public static final DeferredHolder<Item, ApolloBowItem> APOLLO_BOW = ITEMS.register("apollo_bow", () -> new ApolloBowItem(
