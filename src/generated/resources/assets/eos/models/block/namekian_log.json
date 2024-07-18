@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "eos:block/namekian_log_end",
-    "side": "eos:block/namekian_log_side"
-  }
-}

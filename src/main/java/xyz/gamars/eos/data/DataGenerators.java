@@ -5,7 +5,9 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.loot.LootTableProvider;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
@@ -14,6 +16,8 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 import xyz.gamars.eos.Eos;
 import xyz.gamars.eos.data.providers.*;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
@@ -53,14 +57,13 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), eosBlockTagsProvider);
         generator.addProvider(event.includeServer(), new EosItemTagProvider(packOutput, provider, eosBlockTagsProvider.contentsGetter(), existingFileHelper));
         generator.addProvider(event.includeServer(), new EosDamageTypeTagsProvider(packOutput, datapackProvider, existingFileHelper));
+        ));
+        generator.addProvider(event.includeServer(), new EosLootTablesProvider(packOutput, provider));
 
 
 
 
     }
-
-
-
 
 
 }

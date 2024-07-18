@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "eos:block/ajisa_log_end",
+    "side": "eos:block/ajisa_log_side"
+  }
+}

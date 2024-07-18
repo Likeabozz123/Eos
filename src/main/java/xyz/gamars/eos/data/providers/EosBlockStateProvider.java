@@ -27,13 +27,14 @@ public class EosBlockStateProvider extends BlockStateProvider {
 
         simpleBlock(BlockInit.RAW_MARBLE.get());
         simpleBlock(BlockInit.NAMEKIAN_ROCK.get());
+        simpleBlock(BlockInit.AJISA_LEAVES.get());
         simpleBlock(BlockInit.MARBLE_BRICKS.get());
         simpleBlock(BlockInit.LARGE_MARBLE_BRICKS.get());
         simpleBlock(BlockInit.CHISELED_MARBLE.get());
         simpleBlock(BlockInit.CHISELED_MARBLE_2.get());
         simpleBlock(BlockInit.CRACKED_MARBLE_BRICKS.get());
         axisBlock(BlockInit.MARBLE_PILLAR.get());
-        axisBlock(BlockInit.NAMEKIAN_LOG.get());
+        axisBlock(BlockInit.AJISA_LOG.get());
         simpleBlock(BlockInit.NAMEKIAN_GRASS_BLOCK.get(),cubeBottomTopTexture(BlockInit.NAMEKIAN_GRASS_BLOCK.get(),
                 modLoc("block/namekian_grass_top"),
                 modLoc("block/namekian_rock"),

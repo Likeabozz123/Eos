@@ -1,4 +1,6 @@
 {
+  "block.eos.ajisa_leaves": "Ajisa Leaves",
+  "block.eos.ajisa_log": "Ajisa Log",
   "block.eos.chiseled_marble": "Chiseled Marble",
   "block.eos.chiseled_marble_2": "Chiseled Marble",
   "block.eos.cracked_marble_bricks": "Cracked Marble Bricks",
@@ -10,7 +12,6 @@
   "block.eos.marble_stairs": "Marble Stairs",
   "block.eos.marble_wall": "Marble Wall",
   "block.eos.namekian_grass_block": "Namekian Grass Block",
-  "block.eos.namekian_log": "Namekian Log",
   "block.eos.namekian_rock": "Namekian Rock",
   "block.eos.raw_marble": "Raw Marble",
   "curios.identifier.ear": "Ear",

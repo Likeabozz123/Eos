@@ -24,10 +24,11 @@ public class BlockInit {
 
     public static final DeferredHolder<Block, DevBlock> DEV_BLOCK = create("dev_block", () -> new DevBlock(BlockBehaviour.Properties.of()));
 
-    public static final DeferredHolder<Block, Block> NAMEKIAN_GRASS_BLOCK = create("namekian_grass_block", () -> new GrassBlock(BlockBehaviour.Properties.ofLegacyCopy(Blocks.COBBLESTONE)));
-    public static final DeferredHolder<Block, Block> NAMEKIAN_ROCK = create("namekian_rock", () -> new Block(BlockBehaviour.Properties.ofLegacyCopy(Blocks.COBBLESTONE)));
-    public static final DeferredHolder<Block, RotatedPillarBlock> NAMEKIAN_LOG = create("namekian_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofLegacyCopy(Blocks.OAK_LOG)));
-    public static final DeferredHolder<Block, TestPortalBlock> TEST_PORTAL_BLOCK = create("test_portal_block", () -> new TestPortalBlock(BlockBehaviour.Properties.ofLegacyCopy(Blocks.STONE).noLootTable().noOcclusion().noCollission()));
+    public static final DeferredHolder<Block, Block> NAMEKIAN_GRASS_BLOCK = create("namekian_grass_block", () -> new GrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE)));
+    public static final DeferredHolder<Block, Block> NAMEKIAN_ROCK = create("namekian_rock", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE)));
+    public static final DeferredHolder<Block, RotatedPillarBlock> AJISA_LOG = create("ajisa_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)));
+    public static final DeferredHolder<Block, LeavesBlock> AJISA_LEAVES = create("ajisa_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)));
+    public static final DeferredHolder<Block, TestPortalBlock> TEST_PORTAL_BLOCK = create("test_portal_block", () -> new TestPortalBlock(BlockBehaviour.Properties.ofLegacyCopy(Blocks.STONE).noOcclusion().noCollission()));
 
     public static final DeferredHolder<Block, TestBlock> TEST_BLOCK = create("test_block", () -> new TestBlock(BlockBehaviour.Properties.of()));
     public static final DeferredHolder<Block, SphereBlock> SPHERE_BLOCK = create("sphere_block", () -> new SphereBlock(BlockBehaviour.Properties.of()));

@@ -7,7 +7,20 @@
     "water_color": 3977594,
     "water_fog_color": 3977594
   },
-  "features": [],
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:trees_plains"
+    ]
+  ],
   "has_precipitation": true,
   "spawn_costs": {},
   "spawners": {

@@ -38,7 +38,8 @@ public class EosItemModelProvider extends ItemModelProvider {
         blockItem(BlockInit.DEV_BLOCK.get());
         blockItem(BlockInit.NAMEKIAN_GRASS_BLOCK.get());
         blockItem(BlockInit.NAMEKIAN_ROCK.get());
-        blockItem(BlockInit.NAMEKIAN_LOG.get());
+        blockItem(BlockInit.AJISA_LOG.get());
+        blockItem(BlockInit.AJISA_LEAVES.get());
 
         blockItem(BlockInit.RAW_MARBLE.get());
         blockItem(BlockInit.MARBLE_BRICKS.get());
