@@ -11,10 +11,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import xyz.gamars.eos.Eos;
 import xyz.gamars.eos.common.components.SizeComponent;
-import xyz.gamars.eos.common.objects.items.DevItem;
-import xyz.gamars.eos.common.objects.items.GodSlayerItem;
-import xyz.gamars.eos.common.objects.items.PlungerItem;
-import xyz.gamars.eos.common.objects.items.TyrfingrSwordItem;
+import xyz.gamars.eos.common.objects.items.*;
 import xyz.gamars.eos.common.objects.items.apollo.ApolloBowItem;
 import xyz.gamars.eos.common.objects.items.coolassstick.CoolAssStickItem;
 import xyz.gamars.eos.common.objects.items.poseidon.PoseidonArmorItem;
@@ -55,6 +52,7 @@ public class ItemInit {
                     .component(DataComponentsInit.SIZE.value(), new SizeComponent(1))));
 
     public static final DeferredHolder<Item, GodSlayerItem> GOD_SLAYER = ITEMS.register("god_slayer", () -> new GodSlayerItem(new Item.Properties()));
+    public static final DeferredHolder<Item, BigBobItem> BIG_BOB = ITEMS.register("big_bob", () -> new BigBobItem(new Item.Properties().attributes(BigBobItem.createAttributes())));
 
 
     public static final DeferredHolder<Item, ApolloBowItem> APOLLO_BOW = ITEMS.register("apollo_bow", () -> new ApolloBowItem(

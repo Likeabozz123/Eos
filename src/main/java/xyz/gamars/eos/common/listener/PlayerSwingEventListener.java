@@ -18,6 +18,7 @@ public class PlayerSwingEventListener {
         ItemInit.PLUNGER.get().onPlayerSwing(event);
         ItemInit.TYRFINGER_SWORD.get().onPlayerSwing(event);
         ItemInit.POSEIDON_TRIDENT.get().onPlayerSwing(event);
+        ItemInit.BIG_BOB.get().onPlayerSwing(event);
 
     }
 }

@@ -2,6 +2,7 @@ package xyz.gamars.eos.data.providers;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import xyz.gamars.eos.Eos;
@@ -24,12 +25,14 @@ public class EosLanguageProvider extends LanguageProvider {
         add(ItemInit.POSEIDON_LEGGINGS.get(), "Poseidon's Leggings");
         add(ItemInit.POSEIDON_BOOTS.get(), "Poseidon's Boots");
         add(ItemInit.TYRFINGER_SWORD.get(), "Tyrfinger Sword");
+        add(ItemInit.BIG_BOB.get(),"Big Bob");
 
         add(ItemInit.COOL_ASS_STICK.get(), "Cool Ass Stick");
         add(ItemInit.WUKONGS_STAFF.get(), "Wukong's Staff");
 
         add(ItemInit.STONE_EGG_SPAWN_EGG.get(), "Stone Egg Spawn Egg");
         add(ItemInit.MONKEY_SPAWN_EGG.get(), "Monkey Spawn Egg");
+
 
         add(BlockInit.DEV_BLOCK.get(), "Dev Block");
         add(BlockInit.NAMEKIAN_GRASS_BLOCK.get(), "Namekian Grass Block");

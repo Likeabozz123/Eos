@@ -68,14 +68,16 @@ public class WukongsStaffItem extends Item implements GeoItem, ICurioItem, Proje
                                 -2.4f,
                                 AttributeModifier.Operation.ADD_VALUE),
                         EquipmentSlotGroup.MAINHAND
-                ).add(
+                )
+                .add(
                         Attributes.ENTITY_INTERACTION_RANGE,
                         new AttributeModifier(AttributeLocations.ENTITY_INTERACTION_RANGE,
                                 0,
                                 AttributeModifier.Operation.ADD_VALUE
                                 ),
                                 EquipmentSlotGroup.MAINHAND
-                ).add(
+                )
+                .add(
                         Attributes.BLOCK_INTERACTION_RANGE  ,
                         new AttributeModifier(AttributeLocations.BLOCK_INTERACTION_RANGE,
                                 0,
