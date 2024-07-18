@@ -28,6 +28,7 @@ import software.bernie.geckolib.animation.AnimatableManager;
 import software.bernie.geckolib.util.GeckoLibUtil;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
+import xyz.gamars.eos.Eos;
 import xyz.gamars.eos.client.KeyMappingInit;
 import xyz.gamars.eos.common.components.SizeComponent;
 import xyz.gamars.eos.common.objects.DataComponentsInit;
@@ -90,27 +91,27 @@ public class WukongsStaffItem extends Item implements GeoItem, ICurioItem, Proje
         if (!level.isClientSide()) {
             ItemStack item = player.getMainHandItem();
             if (!player.isCrouching()) {
-                item.update(DataComponentsInit.SIZE.value(), new SizeComponent(1, MAX_SIZE), s -> {
+                item.update(DataComponentsInit.SIZE.value(), new SizeComponent(1), s -> {
 
                     int size = s.size();
                     size++;
-                    if (size > s.maxSize()) {
+                    if (size > WukongsStaffItem.MAX_SIZE) {
                         size = 1;
                     }
 
-                    return new SizeComponent(size, MAX_SIZE);
+                    return new SizeComponent(size);
                 });
 
             } else {
-                item.update(DataComponentsInit.SIZE.value(), new SizeComponent(1, MAX_SIZE), s -> {
+                item.update(DataComponentsInit.SIZE.value(), new SizeComponent(1), s -> {
 
                     int size = s.size();
                     size--;
                     if (size <= 0) {
-                        size = s.maxSize();
+                        size = WukongsStaffItem.MAX_SIZE;
                     }
 
-                    return new SizeComponent(size, MAX_SIZE);
+                    return new SizeComponent(size);
                 });
             }
             updateItem(item);

@@ -52,7 +52,7 @@ public class ItemInit {
 
     public static final DeferredHolder<Item, WukongsStaffItem> WUKONGS_STAFF = ITEMS.register("wukongs_staff", () -> new WukongsStaffItem(
             new Item.Properties().attributes(WukongsStaffItem.createAttributes())
-                    .component(DataComponentsInit.SIZE.value(), new SizeComponent(1, WukongsStaffItem.MAX_SIZE))));
+                    .component(DataComponentsInit.SIZE.value(), new SizeComponent(1))));
 
     public static final DeferredHolder<Item, GodSlayerItem> GOD_SLAYER = ITEMS.register("god_slayer", () -> new GodSlayerItem(new Item.Properties()));
 

@@ -35,4 +35,15 @@ public class InventoryUtils {
         item.set(DataComponents.ATTRIBUTE_MODIFIERS, newAttributes.build());
     }
 
+    public static ItemAttributeModifiers.Entry getItemAttribute(ItemStack item, Holder<Attribute> attribute) {
+        ItemAttributeModifiers currentAttributes = item.get(DataComponents.ATTRIBUTE_MODIFIERS);
+
+        for (ItemAttributeModifiers.Entry entry : currentAttributes.modifiers()) {
+            if (entry.attribute().equals(attribute)) {
+                return entry;
+            }
+        }
+        return null;
+    }
+
 }

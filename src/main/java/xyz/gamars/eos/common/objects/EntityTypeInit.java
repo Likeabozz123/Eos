@@ -27,7 +27,9 @@ public class EntityTypeInit {
     );
 
     public static final DeferredHolder<EntityType<?>, EntityType<WukongsStaffProjectileEntity>> WUKONGS_STAFF_PROJECTILE = register("wukongs_staff",
-            EntityType.Builder.<WukongsStaffProjectileEntity>of(WukongsStaffProjectileEntity::new, MobCategory.MISC));
+            EntityType.Builder.<WukongsStaffProjectileEntity>of(WukongsStaffProjectileEntity::new, MobCategory.MISC)
+                    .sized(0.3f, 1.9f)
+    );
 
     private static <T extends Entity> DeferredHolder<EntityType<?>, EntityType<T>> register(String key, EntityType.Builder<T> builder) {
         return ENTITY_TYPES.register(key, () -> builder.build(key));

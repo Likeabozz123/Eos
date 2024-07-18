@@ -14,8 +14,8 @@ public class PullOutWukongStaffPayloadHandler {
     public static class ServerPayloadHandler {
         public static void handleData(PullOutWukongStaffPayload payload, IPayloadContext context) {
             context.enqueueWork(() -> {
-                payload.itemStack().update(DataComponentsInit.SIZE.value(), new SizeComponent(1, WukongsStaffItem.MAX_SIZE), s -> {
-                    return new SizeComponent(5 , WukongsStaffItem.MAX_SIZE);
+                payload.itemStack().update(DataComponentsInit.SIZE.value(), new SizeComponent(1), s -> {
+                    return new SizeComponent(5);
                 });
                 ((WukongsStaffItem) payload.itemStack().getItem()).updateItem(payload.itemStack());
                 context.player().getInventory().add(payload.itemStack());
