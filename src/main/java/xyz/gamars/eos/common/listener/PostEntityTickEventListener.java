@@ -6,7 +6,7 @@ import net.neoforged.neoforge.event.tick.EntityTickEvent;
 import xyz.gamars.eos.Eos;
 
 @EventBusSubscriber(modid = Eos.MOD_ID)
-public class TickEventListener{
+public class PostEntityTickEventListener {
 
     @SubscribeEvent
     public static void onTick(EntityTickEvent.Post event) {
