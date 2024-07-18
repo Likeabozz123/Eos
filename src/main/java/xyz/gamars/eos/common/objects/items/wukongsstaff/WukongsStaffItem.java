@@ -5,7 +5,9 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Position;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
@@ -31,6 +33,7 @@ import xyz.gamars.eos.common.components.SizeComponent;
 import xyz.gamars.eos.common.objects.DataComponentsInit;
 import xyz.gamars.eos.common.objects.entities.wukongsstaff.WukongsStaffProjectileEntity;
 import xyz.gamars.eos.network.payloads.PullOutWukongStaffPayload;
+import xyz.gamars.eos.network.payloads.ShootStaffPayload;
 import xyz.gamars.eos.utils.AttributeLocations;
 import xyz.gamars.eos.utils.InventoryUtils;
 
@@ -210,9 +213,24 @@ public class WukongsStaffItem extends Item implements GeoItem, ICurioItem, Proje
     }
 
     @Override
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
+        if (level.isClientSide()) {
+            if (entity instanceof LivingEntity) {
+
+                if (KeyMappingInit.SHOOT_STAFF.get().isDown()) {
+                    if (((LivingEntity) entity).getMainHandItem() == stack) {
+                        PacketDistributor.sendToServer(new ShootStaffPayload(stack, 3.5f, 0.0f));
+
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
         if (slotContext.entity().level().isClientSide()) {
-            while(KeyMappingInit.WHIP_OUT_STAFF.get().consumeClick()) {
+            if(KeyMappingInit.WHIP_OUT_STAFF.get().isDown()) {
                 Player player = (Player) slotContext.entity();
                 if (!InventoryUtils.isInventoryFull(player.getInventory().items)) {
                     PacketDistributor.sendToServer(new PullOutWukongStaffPayload(stack, slotContext.identifier(), slotContext.index()));

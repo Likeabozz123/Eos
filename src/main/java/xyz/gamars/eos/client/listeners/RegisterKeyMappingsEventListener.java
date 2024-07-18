@@ -4,6 +4,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
+import org.checkerframework.checker.units.qual.K;
 import xyz.gamars.eos.Eos;
 import xyz.gamars.eos.client.KeyMappingInit;
 
@@ -12,7 +13,9 @@ public class RegisterKeyMappingsEventListener {
 
     @SubscribeEvent
     public static void onRegisterKeyMappings(RegisterKeyMappingsEvent event) {
-        event.register(KeyMappingInit.WHIP_OUT_STAFF.get());
+        KeyMappingInit.KEY_MAPPINGS.forEach(keyMapping -> {
+            event.register(keyMapping.get());
+        });
     }
 
 }

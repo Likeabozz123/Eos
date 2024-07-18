@@ -25,7 +25,7 @@ public class DevItem extends Item {
 
         if (!level.isClientSide()) {
             WukongsStaffProjectileEntity wukongsStaffProjectile = new WukongsStaffProjectileEntity(player, level, player.getItemInHand(usedHand));
-            wukongsStaffProjectile.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.5F, 0);
+            wukongsStaffProjectile.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 3.5F, 0);
             level.addFreshEntity(wukongsStaffProjectile);
         }
 

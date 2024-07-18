@@ -8,8 +8,10 @@ import net.neoforged.neoforge.network.handling.MainThreadPayloadHandler;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import xyz.gamars.eos.Eos;
 import xyz.gamars.eos.network.handlers.PullOutWukongStaffPayloadHandler;
+import xyz.gamars.eos.network.handlers.SpawnEntityPayloadHandler;
 import xyz.gamars.eos.network.handlers.TestPayloadHandler;
 import xyz.gamars.eos.network.payloads.PullOutWukongStaffPayload;
+import xyz.gamars.eos.network.payloads.ShootStaffPayload;
 import xyz.gamars.eos.network.payloads.TestPayload;
 
 @EventBusSubscriber(modid = Eos.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
@@ -37,6 +39,14 @@ public class RegisterPayloadHandlersEventListener {
                         PullOutWukongStaffPayloadHandler.ServerPayloadHandler::handleData
                 )
 
+        );
+
+        registrar.playToServer(
+                ShootStaffPayload.TYPE,
+                ShootStaffPayload.STREAM_CODEC,
+                new MainThreadPayloadHandler<>(
+                        SpawnEntityPayloadHandler.ServerPayloadHandler::handleData
+                )
         );
 
     }
