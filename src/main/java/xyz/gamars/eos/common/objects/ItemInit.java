@@ -68,6 +68,9 @@ public class ItemInit {
                     FastColor.ABGR32.color(1, 112, 65, 0),
                     FastColor.ABGR32.color(1, 74, 43, 0), new Item.Properties()));
 
+    public static final DeferredHolder<Item, PunchingBagItem> PUNCHING_BAG_SPAWN_EGG = ITEMS.register("punching_bag_spawn_egg",
+            () -> new PunchingBagItem(new Item.Properties()));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

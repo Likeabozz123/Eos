@@ -8,6 +8,7 @@ import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
@@ -30,21 +31,19 @@ public class PunchingBagEntity extends LivingEntity implements GeoEntity {
 
     private final AnimatableInstanceCache animatableInstanceCache = GeckoLibUtil.createInstanceCache(this);
 
-    private boolean attacked = false;
-
 
     public PunchingBagEntity(EntityType<? extends LivingEntity> entityType, Level level) {
         super(entityType, level);
 
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
-        setAnimData(DataTickets.ACTIVE, true);
+
 
     }
 
     public static AttributeSupplier.Builder createAttributes() {
         return LivingEntity.createLivingAttributes()
-                .add(Attributes.MAX_HEALTH, Double.MAX_VALUE)
-                .add(Attributes.KNOCKBACK_RESISTANCE, Double.MAX_VALUE);
+                .add(Attributes.MAX_HEALTH, 1024)
+                .add(Attributes.KNOCKBACK_RESISTANCE, 1);
     }
 
     @Override
@@ -71,36 +70,32 @@ public class PunchingBagEntity extends LivingEntity implements GeoEntity {
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        // controllers.add(new AnimationController<>(this, "attacked", 0, this::attackedAnimController));
         controllers.add(new AnimationController<>(this, "attacked_controller", event -> PlayState.STOP)
                 .triggerableAnim("attacked", ATTACKED)
         );
     }
 
-    protected <E extends PunchingBagEntity> PlayState attackedAnimController(final AnimationState<E> event) {
+    @Override
+    protected void actuallyHurt(DamageSource damageSource, float damageAmount) {
+        super.actuallyHurt(damageSource, damageAmount);
 
-        if (event.getController().hasAnimationFinished()) {
-            attacked = false;
+        setCustomNameVisible(true);
+        setHealth(1024);
+        triggerAnim("attacked_controller", "attacked");
+        setCustomName(Component.literal("Damage: " + damageAmount + " / Health: " + getHealth()));
+
+        if (damageSource.getEntity() instanceof Player) {
+            Player player = (Player) damageSource.getEntity();
+            if (player.isCrouching()) {
+                this.discard();
+            }
         }
-
-        if (attacked) {
-            return event.setAndContinue(ATTACKED);
-        }
-
-        event.getController().forceAnimationReset();
-
-        return PlayState.STOP;
     }
 
     @Override
-    public boolean hurt(DamageSource source, float amount) {
-        triggerAnim("attacked_controller", "attacked");
-        setCustomName(Component.literal("Damage: " + amount + " / Health: " + getHealth()));
-        setHealth((float) Double.MAX_VALUE);
-        return super.hurt(source, amount);
+    public void tick() {
+        super.tick();
     }
-
-
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
