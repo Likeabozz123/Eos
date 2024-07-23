@@ -54,38 +54,40 @@ public class HollowPurpleEntity extends Projectile implements IEntityWithComplex
     public void tick() {
         super.tick();
 
-        hitbox = new AABB(blockPosition());
-        hitbox = hitbox.inflate(radius);
+        if (!level().isClientSide()) {
+            hitbox = new AABB(blockPosition());
+            hitbox = hitbox.inflate(radius);
 
-        elapsedTicks++;
-        radius = maxRadius * MathUtils.easeInOutCubic(elapsedTicks / (8 * maxRadius));
-        if (elapsedTicks >= (8 * maxRadius)) radius = maxRadius;
+            elapsedTicks++;
+            radius = maxRadius * MathUtils.easeInOutCubic(elapsedTicks / (8 * maxRadius));
+            if (elapsedTicks >= (8 * maxRadius)) radius = maxRadius;
 
-        if (elapsedTicks >= (8 * maxRadius) * 3) {
-            discard();
-        }
-
-
-        Vec3 vec3 = this.getDeltaMovement();
-        double d0 = this.getX() + vec3.x;
-        double d1 = this.getY() + vec3.y;
-        double d2 = this.getZ() + vec3.z;
-
-        this.setDeltaMovement(vec3);
-        this.applyGravity();
-        this.setPos(d0, d1, d2);
-
-        sphericalClear(level(), blockPosition(), (int) (radius * 2), false);
-
-        ArrayList<LivingEntity> collidingEntities = getEntitiesInSphere();
-        for (Entity entity : collidingEntities) {
-            if (!(entity instanceof Player)) {
-                entity.hurt(level().damageSources().explosion(null), 60.0F);
+            if (elapsedTicks >= (8 * maxRadius) * 3) {
+                discard();
             }
-            if (entity instanceof Player) {
-                if (getOwner() != null) {
-                    if (!entity.is(getOwner())) {
-                        entity.hurt(level().damageSources().explosion(null), 60.0F);
+
+
+            Vec3 vec3 = this.getDeltaMovement();
+            double d0 = this.getX() + vec3.x;
+            double d1 = this.getY() + vec3.y;
+            double d2 = this.getZ() + vec3.z;
+
+            this.setDeltaMovement(vec3);
+            this.applyGravity();
+            this.setPos(d0, d1, d2);
+
+            sphericalClear(level(), blockPosition(), (int) (radius * 2), false);
+
+            ArrayList<LivingEntity> collidingEntities = getEntitiesInSphere();
+            for (Entity entity : collidingEntities) {
+                if (!(entity instanceof Player)) {
+                    entity.hurt(level().damageSources().explosion(null), 60.0F);
+                }
+                if (entity instanceof Player) {
+                    if (getOwner() != null) {
+                        if (!entity.is(getOwner())) {
+                            entity.hurt(level().damageSources().explosion(null), 60.0F);
+                        }
                     }
                 }
             }
