@@ -12,6 +12,7 @@ import xyz.gamars.eos.common.objects.blocks.cylinder.CylinderBlockEntityRenderer
 import xyz.gamars.eos.common.objects.blocks.sphere.SphereBlockEntityRenderer;
 import xyz.gamars.eos.common.objects.blocks.test.TestBlockEntityRenderer;
 import xyz.gamars.eos.common.objects.blocks.torus.TorusBlockEntityRenderer;
+import xyz.gamars.eos.common.objects.entities.hollowpurple.HollowPurpleRenderer;
 import xyz.gamars.eos.common.objects.entities.monkey.MonkeyRenderer;
 import xyz.gamars.eos.common.objects.entities.punchingbag.PunchingBagEntityRenderer;
 import xyz.gamars.eos.common.objects.entities.stoneegg.StoneEggRenderer;
@@ -26,6 +27,7 @@ public class EntityRenderersEventListener {
         event.registerEntityRenderer(EntityTypeInit.MONKEY.get(), MonkeyRenderer::new);
         event.registerEntityRenderer(EntityTypeInit.WUKONGS_STAFF_PROJECTILE.get(), WukongsStaffProjectileRenderer::new);
         event.registerEntityRenderer(EntityTypeInit.PUNCHING_BAG.get(), PunchingBagEntityRenderer::new);
+        event.registerEntityRenderer(EntityTypeInit.HOLLOW_PURPLE.get(), HollowPurpleRenderer::new);
 
         event.registerBlockEntityRenderer(BlockEntityTypeInit.TEST_BLOCK_ENTITY.get(), TestBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(BlockEntityTypeInit.SPHERE_BLOCK_ENTITY.get(), SphereBlockEntityRenderer::new);

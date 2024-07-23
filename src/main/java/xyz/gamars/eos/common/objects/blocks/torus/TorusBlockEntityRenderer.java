@@ -10,6 +10,7 @@ import net.minecraft.world.phys.AABB;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import xyz.gamars.eos.client.render.RenderTypeInit;
+import xyz.gamars.eos.utils.MathUtils;
 
 public class TorusBlockEntityRenderer implements BlockEntityRenderer<TorusBlockEntity> {
 
@@ -41,10 +42,10 @@ public class TorusBlockEntityRenderer implements BlockEntityRenderer<TorusBlockE
                 float phi1 = j * thetaStep;
                 float phi2 = j + 1 == sides ? Mth.PI * 2 + startPhi : (j + 1) * phiStep + startPhi;
 
-                Vector3f p0 = parametricTorus(majorRadius, minorRadius, theta1, phi1);
-                Vector3f p1 = parametricTorus(majorRadius, minorRadius, theta2, phi1);
-                Vector3f p2 = parametricTorus(majorRadius, minorRadius, theta1, phi2);
-                Vector3f p3 = parametricTorus(majorRadius, minorRadius, theta2, phi2);
+                Vector3f p0 = MathUtils.parametricTorus(majorRadius, minorRadius, theta1, phi1);
+                Vector3f p1 = MathUtils.parametricTorus(majorRadius, minorRadius, theta2, phi1);
+                Vector3f p2 = MathUtils.parametricTorus(majorRadius, minorRadius, theta1, phi2);
+                Vector3f p3 = MathUtils.parametricTorus(majorRadius, minorRadius, theta2, phi2);
 
                 vertexPosColor(vertexConsumer, last, p0, 0, 0, 0, 1);
                 vertexPosColor(vertexConsumer, last, p1, 0, 0, 0, 1);
@@ -62,13 +63,7 @@ public class TorusBlockEntityRenderer implements BlockEntityRenderer<TorusBlockE
 
     }
 
-    public static Vector3f parametricTorus(float majorRadius, int minorRadius, float theta, float phi) {
-        return new Vector3f(
-                (majorRadius + (minorRadius * Mth.cos(theta))) * Mth.cos(phi),
-                minorRadius * Mth.sin(theta),
-                (majorRadius + (minorRadius * Mth.cos(theta))) * Mth.sin(phi)
-                );
-    }
+
 
     public static void vertexPosColor(VertexConsumer vertexConsumer, Matrix4f last, Vector3f vector, float r, float g, float b, float a) {
         vertexConsumer.addVertex(last, vector.x(), vector.y(), vector.z())

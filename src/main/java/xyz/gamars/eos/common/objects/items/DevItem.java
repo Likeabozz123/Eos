@@ -12,6 +12,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
+import xyz.gamars.eos.common.objects.entities.hollowpurple.HollowPurpleEntity;
+import xyz.gamars.eos.common.objects.entities.hollowpurple.HollowPurpleRenderer;
 import xyz.gamars.eos.common.objects.entities.wukongsstaff.WukongsStaffProjectileEntity;
 
 public class DevItem extends Item {
@@ -24,9 +26,9 @@ public class DevItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
 
         if (!level.isClientSide()) {
-            WukongsStaffProjectileEntity wukongsStaffProjectile = new WukongsStaffProjectileEntity(player, level, player.getItemInHand(usedHand));
-            wukongsStaffProjectile.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 3.5F, 0);
-            level.addFreshEntity(wukongsStaffProjectile);
+            HollowPurpleEntity hollowPurpleEntity = new HollowPurpleEntity(level, player.getX(), player.getEyeY(), player.getZ());
+            hollowPurpleEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 0.5f, 0f);
+            level.addFreshEntity(hollowPurpleEntity);
         }
 
 

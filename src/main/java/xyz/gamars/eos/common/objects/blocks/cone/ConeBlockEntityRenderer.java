@@ -10,6 +10,7 @@ import net.minecraft.world.phys.AABB;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import xyz.gamars.eos.client.render.RenderTypeInit;
+import xyz.gamars.eos.utils.MathUtils;
 
 public class ConeBlockEntityRenderer implements BlockEntityRenderer<ConeBlockEntity> {
 
@@ -36,9 +37,9 @@ public class ConeBlockEntityRenderer implements BlockEntityRenderer<ConeBlockEnt
             float theta2 = i + 1 == sides ? Mth.PI * 2 + startTheta : (i + 1) * thetaStep + startTheta;
 
             // sides
-            Vector3f pTopCenter = parametricCone(0, theta1, height);
-            Vector3f p0 = parametricCone(radius, theta1, 0);
-            Vector3f p1 = parametricCone(radius, theta2, 0);
+            Vector3f pTopCenter = MathUtils.parametricCone(0, theta1, height);
+            Vector3f p0 = MathUtils.parametricCone(radius, theta1, 0);
+            Vector3f p1 = MathUtils.parametricCone(radius, theta2, 0);
 
             vertexPosColor(vertexConsumer, last, pTopCenter, 0, 0, 0, 1);
             vertexPosColor(vertexConsumer, last, p0, 0, 0, 0, 1);
@@ -55,9 +56,6 @@ public class ConeBlockEntityRenderer implements BlockEntityRenderer<ConeBlockEnt
 
     }
 
-    public static Vector3f parametricCone(float radius, float theta, int height) {
-        return new Vector3f(radius * Mth.cos(theta), height, radius * Mth.sin(theta));
-    }
 
     public static void vertexPosColor(VertexConsumer vertexConsumer, Matrix4f last, Vector3f vector, float r, float g, float b, float a) {
         vertexConsumer.addVertex(last, vector.x(), vector.y(), vector.z())
@@ -71,4 +69,6 @@ public class ConeBlockEntityRenderer implements BlockEntityRenderer<ConeBlockEnt
     public AABB getRenderBoundingBox(ConeBlockEntity blockEntity) {
         return AABB.INFINITE;
     }
+
+
 }

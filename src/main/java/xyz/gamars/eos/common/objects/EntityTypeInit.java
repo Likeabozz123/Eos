@@ -8,6 +8,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import xyz.gamars.eos.Eos;
+import xyz.gamars.eos.common.objects.entities.hollowpurple.HollowPurpleEntity;
 import xyz.gamars.eos.common.objects.entities.monkey.MonkeyEntity;
 import xyz.gamars.eos.common.objects.entities.punchingbag.PunchingBagEntity;
 import xyz.gamars.eos.common.objects.entities.stoneegg.StoneEggEntity;
@@ -34,6 +35,10 @@ public class EntityTypeInit {
 
     public static final DeferredHolder<EntityType<?>, EntityType<PunchingBagEntity>> PUNCHING_BAG = register("punching_bag",
             EntityType.Builder.<PunchingBagEntity>of(PunchingBagEntity::new, MobCategory.MISC)
+    );
+
+    public static final DeferredHolder<EntityType<?>, EntityType<HollowPurpleEntity>> HOLLOW_PURPLE = register("hollow_purple",
+            EntityType.Builder.<HollowPurpleEntity>of(HollowPurpleEntity::new, MobCategory.MISC)
     );
 
     private static <T extends Entity> DeferredHolder<EntityType<?>, EntityType<T>> register(String key, EntityType.Builder<T> builder) {

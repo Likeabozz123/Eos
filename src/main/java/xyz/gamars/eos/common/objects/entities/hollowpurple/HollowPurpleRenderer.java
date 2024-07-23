@@ -1,37 +1,34 @@
-package xyz.gamars.eos.common.objects.blocks.sphere;
+package xyz.gamars.eos.common.objects.entities.hollowpurple;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
-import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
+import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
-import net.minecraft.world.phys.AABB;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import xyz.gamars.eos.client.render.RenderTypeInit;
 import xyz.gamars.eos.utils.MathUtils;
 
-public class SphereBlockEntityRenderer implements BlockEntityRenderer<SphereBlockEntity> {
+public class HollowPurpleRenderer extends EntityRenderer<HollowPurpleEntity> {
 
-
-    public SphereBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
-
+    public HollowPurpleRenderer(EntityRendererProvider.Context context) {
+        super(context);
     }
 
     @Override
-    public void render(SphereBlockEntity blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
+    public void render(HollowPurpleEntity entity, float entityYaw, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
 
         int longs = 36;
         int lats = 36;
-        float radius = blockEntity.getUpdateTag().getFloat("Radius");
-        // float radius = blockEntity.getRadius();
+        float radius = entity.getRadius();
         int light = 3;
 
 
         Matrix4f last = poseStack.last().pose();
         VertexConsumer vertexConsumer = bufferSource.getBuffer(RenderTypeInit.SOLID_TRIANGLES);
-        poseStack.translate(0.5f, 0, 0.5f);
         float startU = 0;
         float startV = 0;
         float endU = Mth.PI * 2;
@@ -65,9 +62,8 @@ public class SphereBlockEntityRenderer implements BlockEntityRenderer<SphereBloc
                 vertexPosColorUVLight(vertexConsumer, last, p2.x(), p2.y(), p2.z(), 0, 0, 0, 1,  textureU2, textureV1, light);
             }
         }
+
     }
-
-
 
     public static void vertexPosColorUVLight(VertexConsumer vertexConsumer, Matrix4f last, float x, float y, float z, float r, float g, float b, float a, float u, float v, int light) {
         vertexConsumer.addVertex(last, x, y, z)
@@ -77,9 +73,7 @@ public class SphereBlockEntityRenderer implements BlockEntityRenderer<SphereBloc
     }
 
     @Override
-    public AABB getRenderBoundingBox(SphereBlockEntity blockEntity) {
-        return AABB.INFINITE;
+    public ResourceLocation getTextureLocation(HollowPurpleEntity entity) {
+        return null;
     }
-
-
 }
