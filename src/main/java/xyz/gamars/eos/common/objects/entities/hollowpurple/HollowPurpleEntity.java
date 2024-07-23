@@ -1,7 +1,8 @@
 package xyz.gamars.eos.common.objects.entities.hollowpurple;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
@@ -15,7 +16,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.entity.IEntityWithComplexSpawn;
 import xyz.gamars.eos.common.objects.EntityTypeInit;
 import xyz.gamars.eos.utils.MathUtils;
 
@@ -24,12 +24,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
-public class HollowPurpleEntity extends Projectile implements IEntityWithComplexSpawn {
+public class HollowPurpleEntity extends Projectile {
 
     private AABB hitbox;
     private float maxRadius = 10;
     private float radius = 0;
     private int elapsedTicks;
+
+    private static final EntityDataAccessor<Float> RADIUS_DATA = SynchedEntityData.defineId(HollowPurpleEntity.class, EntityDataSerializers.FLOAT);
 
     private static final HashMap<Block, Block> convertMap = new HashMap<>();
 
@@ -61,6 +63,7 @@ public class HollowPurpleEntity extends Projectile implements IEntityWithComplex
             elapsedTicks++;
             radius = maxRadius * MathUtils.easeInOutCubic(elapsedTicks / (8 * maxRadius));
             if (elapsedTicks >= (8 * maxRadius)) radius = maxRadius;
+            setRadiusData(radius);
 
             if (elapsedTicks >= (8 * maxRadius) * 3) {
                 discard();
@@ -160,7 +163,7 @@ public class HollowPurpleEntity extends Projectile implements IEntityWithComplex
 
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
-
+        builder.define(RADIUS_DATA, 0f);
     }
 
     @Override
@@ -168,18 +171,13 @@ public class HollowPurpleEntity extends Projectile implements IEntityWithComplex
         return AABB.INFINITE;
     }
 
-    @Override
-    public void writeSpawnData(RegistryFriendlyByteBuf buffer) {
-        buffer.writeFloat(radius);
+
+    public void setRadiusData(float radius) {
+        entityData.set(RADIUS_DATA, radius);
     }
 
-    @Override
-    public void readSpawnData(RegistryFriendlyByteBuf buffer) {
-        radius = buffer.readFloat();
-    }
-
-    public float getRadius() {
-        return radius;
+    public float getRadiusData() {
+        return entityData.get(RADIUS_DATA);
     }
 
 

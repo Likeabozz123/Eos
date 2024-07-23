@@ -23,7 +23,7 @@ public class HollowPurpleRenderer extends EntityRenderer<HollowPurpleEntity> {
 
         int longs = 36;
         int lats = 36;
-        float radius = entity.getRadius();
+        float radius = entity.getRadiusData();
         int light = 3;
 
 
