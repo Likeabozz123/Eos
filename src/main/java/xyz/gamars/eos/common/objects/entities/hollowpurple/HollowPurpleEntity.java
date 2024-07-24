@@ -28,7 +28,7 @@ public class HollowPurpleEntity extends Projectile {
 
     private AABB hitbox;
     private float maxRadius = 10;
-    private float radius = 0;
+    private float radius = 1;
     private int elapsedTicks;
 
     private static final EntityDataAccessor<Float> RADIUS_DATA = SynchedEntityData.defineId(HollowPurpleEntity.class, EntityDataSerializers.FLOAT);
@@ -69,17 +69,7 @@ public class HollowPurpleEntity extends Projectile {
                 discard();
             }
 
-
-            Vec3 vec3 = this.getDeltaMovement();
-            double d0 = this.getX() + vec3.x;
-            double d1 = this.getY() + vec3.y;
-            double d2 = this.getZ() + vec3.z;
-
-            this.setDeltaMovement(vec3);
-            this.applyGravity();
-            this.setPos(d0, d1, d2);
-
-            sphericalClear(level(), blockPosition(), (int) (radius * 2), false);
+            sphericalClear(level(), blockPosition(), (int) radius, false);
 
             ArrayList<LivingEntity> collidingEntities = getEntitiesInSphere();
             for (Entity entity : collidingEntities) {
@@ -95,6 +85,15 @@ public class HollowPurpleEntity extends Projectile {
                 }
             }
         }
+
+        Vec3 vec3 = this.getDeltaMovement();
+        double d0 = this.getX() + vec3.x;
+        double d1 = this.getY() + vec3.y;
+        double d2 = this.getZ() + vec3.z;
+
+        this.setDeltaMovement(vec3);
+        this.setPos(d0, d1, d2);
+
 
     }
 
@@ -122,8 +121,7 @@ public class HollowPurpleEntity extends Projectile {
 
     }
 
-    public static void sphericalClear(Level level, BlockPos pos, int diameter, boolean convert) {
-        int radius = diameter / 2;
+    public static void sphericalClear(Level level, BlockPos pos, int radius, boolean convert) {
         BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
         Random random = new Random();
         // Perform the initial explosion
